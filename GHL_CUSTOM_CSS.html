@@ -1,14 +1,14 @@
 <style>
     /* ════════════════════════════════════════════════
-   SALES VELOCITY — GHL CUSTOM THEME (2026)
-   Selectores verificados via Chrome DevTools
+   SALES VELOCITY — GHL CUSTOM THEME (CLEAN)
+   Solo sidebar + acentos. No pelea con el contenido.
    Pegar en: Settings → Company → Whitelabel → Custom CSS
    ════════════════════════════════════════════════ */
 
     /* ── Google Fonts ── */
     @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@600;700;800;900&display=swap');
 
-    /* ── Typography Global ── */
+    /* ── Typography ── */
     body,
     body *:not(i):not(.material-icons):not([class*="icon"]):not(code):not(pre) {
         font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif !important;
@@ -24,7 +24,7 @@
     }
 
     /* ══════════════════════════════════
-   SIDEBAR (#sidebar-v2)
+   SIDEBAR — Sales Velocity Dark
    ══════════════════════════════════ */
     #sidebar-v2 {
         background: #0F0E0B !important;
@@ -35,18 +35,15 @@
         background: #0F0E0B !important;
     }
 
-    /* Sidebar nav links — hover */
+    /* Sidebar hover */
     #sidebar-v2 a:hover,
-    #sidebar-v2 li:hover,
-    #sidebar-v2 [class*="nav"]:hover {
+    #sidebar-v2 li:hover {
         background: rgba(217, 119, 6, 0.08) !important;
     }
 
-    /* Sidebar nav links — active/selected */
+    /* Sidebar active */
     #sidebar-v2 a.active,
     #sidebar-v2 a.router-link-active,
-    #sidebar-v2 li.active,
-    #sidebar-v2 [class*="nav"].active,
     #sidebar-v2 .router-link-exact-active {
         background: rgba(217, 119, 6, 0.12) !important;
         border-left: 3px solid #D97706 !important;
@@ -58,7 +55,6 @@
         color: #F59E0B !important;
     }
 
-    /* Sidebar active icon color */
     #sidebar-v2 a.active svg,
     #sidebar-v2 .router-link-active svg,
     #sidebar-v2 .router-link-exact-active svg {
@@ -66,27 +62,13 @@
         fill: #F59E0B !important;
     }
 
-    /* Sidebar text color (all items) */
     #sidebar-v2 span,
     #sidebar-v2 a {
         color: #E8DED0 !important;
     }
 
-    /* Sidebar icons default */
     #sidebar-v2 svg {
         color: #9C9488 !important;
-    }
-
-    /* ══════════════════════════════════
-   MAIN CONTENT AREA
-   ══════════════════════════════════ */
-    .hl_wrapper {
-        background: #0A0908 !important;
-    }
-
-    /* Override default-bg-color class */
-    .default-bg-color {
-        background-color: #0F0E0B !important;
     }
 
     /* ══════════════════════════════════
@@ -96,52 +78,35 @@
     .btn-primary,
     [class*="btn-primary"],
     button.bg-primary,
-    a.bg-primary,
-    [class*="hl-btn-primary"] {
+    a.bg-primary {
         background: linear-gradient(135deg, #D97706, #F59E0B) !important;
         color: #0A0908 !important;
         font-weight: 700 !important;
         border-radius: 10px !important;
         border: none !important;
-        transition: all 0.3s ease !important;
-    }
-
-    button[class*="primary"]:hover,
-    .btn-primary:hover {
-        box-shadow: 0 8px 24px rgba(217, 119, 6, 0.25) !important;
-        transform: translateY(-1px);
     }
 
     /* ══════════════════════════════════
-   FORM INPUTS — Focus Amber
+   FOCUS STATES — Amber accent
    ══════════════════════════════════ */
     input:focus,
     textarea:focus,
-    select:focus,
-    [class*="form"] input:focus,
-    [class*="form"] textarea:focus {
+    select:focus {
         border-color: #D97706 !important;
         box-shadow: 0 0 0 2px rgba(217, 119, 6, 0.15) !important;
         outline: none !important;
     }
 
     /* ══════════════════════════════════
-   ACCENT COLORS — Links & Highlights  
+   ACCENT COLORS
    ══════════════════════════════════ */
     [class*="text-primary"],
     a[class*="text-primary"] {
         color: #D97706 !important;
     }
 
-    /* Active tabs */
-    [class*="tab"].active,
-    [class*="tab"][aria-selected="true"] {
-        border-bottom-color: #D97706 !important;
-        color: #F59E0B !important;
-    }
-
     /* ══════════════════════════════════
-   SCROLLBAR — Premium Dark
+   SCROLLBAR — Sutil
    ══════════════════════════════════ */
     ::-webkit-scrollbar {
         width: 6px;
@@ -149,34 +114,15 @@
     }
 
     ::-webkit-scrollbar-track {
-        background: #0A0908;
+        background: transparent;
     }
 
     ::-webkit-scrollbar-thumb {
-        background: rgba(217, 119, 6, 0.25);
+        background: rgba(217, 119, 6, 0.2);
         border-radius: 10px;
     }
 
     ::-webkit-scrollbar-thumb:hover {
-        background: rgba(217, 119, 6, 0.4);
-    }
-
-    /* ══════════════════════════════════
-   CARDS & PANELS  
-   ══════════════════════════════════ */
-    [class*="card"],
-    [class*="panel"],
-    [class*="widget"] {
-        border-radius: 12px !important;
-        border-color: rgba(245, 240, 232, 0.06) !important;
-    }
-
-    /* ══════════════════════════════════
-   LOADER — Amber
-   ══════════════════════════════════ */
-    .hl-loader-container [class*="spinner"],
-    .hl-loader-container [class*="loader"] {
-        border-color: #D97706 !important;
-        border-top-color: transparent !important;
+        background: rgba(217, 119, 6, 0.35);
     }
 </style>
