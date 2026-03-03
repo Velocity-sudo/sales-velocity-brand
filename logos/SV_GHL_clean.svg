@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="240" height="40" viewBox="0 0 240 40">
+  <defs>
+    <linearGradient id="ag" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#D97706"/>
+      <stop offset="50%" stop-color="#FBBF24"/>
+      <stop offset="100%" stop-color="#F59E0B"/>
+    </linearGradient>
+  </defs>
+  <text x="120" y="29" text-anchor="middle" font-family="Arial Black, Impact, Arial, Helvetica, sans-serif" font-weight="900" font-size="24" letter-spacing="-0.5">
+    <tspan fill="#E8DED0">SALES</tspan><tspan fill="url(#ag)">VELOCITY</tspan>
+  </text>
+</svg>
