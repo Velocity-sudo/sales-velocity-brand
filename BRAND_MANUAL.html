@@ -1,0 +1,2102 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manual de Marca — Sales Velocity</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        /* SCROLL REVEAL */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1)
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0)
+        }
+
+        .reveal-delay-1 {
+            transition-delay: 0.1s
+        }
+
+        .reveal-delay-2 {
+            transition-delay: 0.2s
+        }
+
+        .reveal-delay-3 {
+            transition-delay: 0.3s
+        }
+
+        .reveal-delay-4 {
+            transition-delay: 0.4s
+        }
+
+        :root {
+            --void: #0A0908;
+            --carbon: #0F0E0B;
+            --espresso: #15130E;
+            --walnut: #1E1B14;
+            --stone: #2A2620;
+            --amber: #D97706;
+            --amber-light: #F59E0B;
+            --copper: #B45309;
+            --gold: #FBBF24;
+            --sand: #E8DED0;
+            --cream: #F5F0E8;
+            --warm-gray: #9C9488;
+            --muted: #6B6560;
+            --font-display: 'DM Sans', sans-serif;
+            --font-body: 'Inter', sans-serif;
+            --font-accent: 'Outfit', sans-serif;
+            --radius: 20px;
+            --max-w: 1100px;
+        }
+
+        body {
+            font-family: var(--font-body);
+            background: var(--void);
+            color: var(--cream);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background-image: radial-gradient(circle, rgba(217, 119, 6, .06) 1px, transparent 1px);
+            background-size: 32px 32px
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: .025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E")
+        }
+
+        /* NAV */
+        .brand-nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            border-bottom: 1px solid rgba(255, 255, 255, .06);
+            position: sticky;
+            top: 0;
+            background: rgba(10, 9, 8, .85);
+            z-index: 100;
+            backdrop-filter: blur(20px)
+        }
+
+        .brand-nav .logo {
+            font-family: var(--font-display);
+            font-size: 1.1rem;
+            font-weight: 800;
+            letter-spacing: -.02em
+        }
+
+        .brand-nav .logo span {
+            background: linear-gradient(135deg, var(--amber), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .brand-nav .version {
+            font-size: .65rem;
+            text-transform: uppercase;
+            letter-spacing: .15em;
+            color: var(--muted)
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 24px;
+            list-style: none
+        }
+
+        .nav-links a {
+            color: var(--warm-gray);
+            text-decoration: none;
+            font-size: .75rem;
+            letter-spacing: .05em;
+            transition: color .3s
+        }
+
+        .nav-links a:hover {
+            color: var(--amber)
+        }
+
+        /* GLOW ORBS */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            animation: float 12s ease-in-out infinite
+        }
+
+        .glow-orb.o1 {
+            width: 400px;
+            height: 400px;
+            background: rgba(217, 119, 6, .06);
+            top: 20%;
+            right: 10%;
+            animation-delay: 0s
+        }
+
+        .glow-orb.o2 {
+            width: 300px;
+            height: 300px;
+            background: rgba(180, 83, 9, .04);
+            bottom: 10%;
+            left: 5%;
+            animation-delay: 4s
+        }
+
+        .glow-orb.o3 {
+            width: 200px;
+            height: 200px;
+            background: rgba(251, 191, 36, .03);
+            top: 60%;
+            right: 30%;
+            animation-delay: 8s
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1)
+            }
+
+            50% {
+                transform: translateY(-30px) scale(1.05)
+            }
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+            padding: 100px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .04)
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(217, 119, 6, .08) 0%, rgba(217, 119, 6, .02) 40%, transparent 70%);
+            transform: translate(-50%, -50%);
+            pointer-events: none
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border-radius: 100px;
+            border: 1px solid rgba(217, 119, 6, .15);
+            background: rgba(217, 119, 6, .05);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 32px;
+            backdrop-filter: blur(8px)
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--amber);
+            animation: pulse 2s ease-in-out infinite
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: .5;
+                transform: scale(.8)
+            }
+        }
+
+        .hero h1 {
+            font-family: var(--font-display);
+            font-size: clamp(48px, 7vw, 88px);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -3px;
+            margin-bottom: 24px
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--amber) 0%, var(--gold) 50%, var(--amber-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .hero p {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--warm-gray);
+            max-width: 520px
+        }
+
+        .container {
+            max-width: var(--max-w);
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1
+        }
+
+        /* SECTIONS */
+        .section {
+            padding: 80px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .04)
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 16px
+        }
+
+        .section-title {
+            font-family: var(--font-display);
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            margin-bottom: 16px
+        }
+
+        .section-desc {
+            font-size: 15px;
+            line-height: 1.7;
+            color: var(--warm-gray);
+            max-width: 560px;
+            margin-bottom: 48px
+        }
+
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(217, 119, 6, .15), transparent);
+            margin: 0 auto;
+            max-width: 800px
+        }
+
+        /* IDENTITY TABLE */
+        .id-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px
+        }
+
+        .id-table td {
+            padding: 16px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, .04);
+            font-size: .95rem
+        }
+
+        .id-table td:first-child {
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: .7rem;
+            letter-spacing: .12em;
+            color: var(--muted);
+            width: 160px;
+            vertical-align: top
+        }
+
+        /* PILLAR CARDS */
+        .pillars-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 32px
+        }
+
+        .pillar-card {
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            border: 1px solid rgba(255, 255, 255, .04);
+            background: rgba(15, 14, 11, .6);
+            backdrop-filter: blur(20px);
+            transition: all .5s;
+            position: relative;
+            overflow: hidden
+        }
+
+        .pillar-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at top right, rgba(217, 119, 6, .04) 0%, transparent 60%);
+            pointer-events: none;
+            transition: all .5s
+        }
+
+        .pillar-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(217, 119, 6, .12)
+        }
+
+        .pillar-card:hover::before {
+            background: radial-gradient(ellipse at top right, rgba(217, 119, 6, .08) 0%, transparent 60%)
+        }
+
+        .pillar-card .number {
+            font-size: .65rem;
+            text-transform: uppercase;
+            letter-spacing: .15em;
+            color: var(--amber);
+            margin-bottom: 16px
+        }
+
+        .pillar-card h3 {
+            font-family: var(--font-display);
+            font-size: 1.15rem;
+            font-weight: 700;
+            margin-bottom: 12px
+        }
+
+        .pillar-card p {
+            font-size: .9rem;
+            color: var(--warm-gray);
+            line-height: 1.6
+        }
+
+        /* COLOR SWATCHES */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+            gap: 16px;
+            margin-top: 24px
+        }
+
+        .swatch {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .03);
+            transition: all .4s;
+            cursor: pointer;
+            position: relative
+        }
+
+        .swatch:hover {
+            transform: translateY(-4px);
+            border-color: rgba(217, 119, 6, .15)
+        }
+
+        .swatch .color-box {
+            height: 90px
+        }
+
+        .swatch .color-info {
+            padding: 14px 16px;
+            background: rgba(10, 9, 8, .8);
+            backdrop-filter: blur(8px)
+        }
+
+        .swatch .color-name {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 2px
+        }
+
+        .swatch .color-hex {
+            font-size: 10px;
+            font-family: monospace;
+            color: var(--muted)
+        }
+
+        .swatch .color-use {
+            font-size: 9px;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        /* TYPOGRAPHY */
+        .type-item {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            align-items: baseline;
+            padding: 28px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .03)
+        }
+
+        .type-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted)
+        }
+
+        /* LOGO SHOWCASE */
+        .logo-showcase {
+            text-align: center;
+            padding: 100px 40px;
+            border-radius: 24px;
+            margin-bottom: 48px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .03);
+            background: linear-gradient(180deg, var(--carbon), var(--espresso))
+        }
+
+        .logo-showcase::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 300px;
+            background: radial-gradient(ellipse, rgba(217, 119, 6, .06) 0%, transparent 70%);
+            pointer-events: none
+        }
+
+        .logo-showcase::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: .4;
+            background-image: radial-gradient(circle, rgba(217, 119, 6, .04) 1px, transparent 1px);
+            background-size: 24px 24px
+        }
+
+        .logo-main {
+            font-family: var(--font-display);
+            font-size: clamp(56px, 8vw, 96px);
+            font-weight: 900;
+            letter-spacing: -4px;
+            line-height: 1;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1
+        }
+
+        .logo-main span {
+            background: linear-gradient(135deg, var(--amber), var(--gold), var(--amber-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .logo-sub {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            position: relative;
+            z-index: 1
+        }
+
+        .logo-variants {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 48px
+        }
+
+        .logo-variant {
+            text-align: center;
+            padding: 56px 24px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, .03);
+            position: relative;
+            overflow: hidden;
+            transition: all .4s
+        }
+
+        .logo-variant:hover {
+            border-color: rgba(217, 119, 6, .1)
+        }
+
+        .logo-variant.on-dark {
+            background: var(--carbon)
+        }
+
+        .logo-variant.on-light {
+            background: var(--sand);
+            color: var(--void)
+        }
+
+        .logo-variant.on-amber {
+            background: linear-gradient(135deg, var(--amber), var(--copper));
+            color: var(--void)
+        }
+
+        .lv-title {
+            font-family: var(--font-display);
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            margin-bottom: 6px
+        }
+
+        .lv-title span {
+            background: linear-gradient(135deg, var(--amber), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .on-light .lv-title span {
+            background: linear-gradient(135deg, var(--copper), var(--amber));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .on-amber .lv-title span {
+            -webkit-text-fill-color: var(--void)
+        }
+
+        .lv-sub {
+            font-size: 9px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: .4;
+            font-weight: 600
+        }
+
+        .lv-label {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: .3;
+            font-weight: 600
+        }
+
+        /* EFFECTS CARDS */
+        .effects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 48px
+        }
+
+        .effect-card {
+            padding: 36px 28px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, .03);
+            background: rgba(15, 14, 11, .4);
+            backdrop-filter: blur(12px);
+            transition: all .4s;
+            position: relative;
+            overflow: hidden
+        }
+
+        .effect-card:hover {
+            border-color: rgba(217, 119, 6, .12);
+            transform: translateY(-3px)
+        }
+
+        .effect-icon {
+            font-size: 32px;
+            margin-bottom: 16px
+        }
+
+        .effect-name {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px
+        }
+
+        .effect-desc {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.5
+        }
+
+        .effect-card.glow-demo::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 60px;
+            background: rgba(217, 119, 6, .12);
+            filter: blur(40px);
+            border-radius: 50%
+        }
+
+        .effect-card.dot-demo {
+            background-image: radial-gradient(circle, rgba(217, 119, 6, .08) 1px, transparent 1px);
+            background-size: 20px 20px
+        }
+
+        .effect-card.glass-demo {
+            background: rgba(30, 27, 20, .3);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(217, 119, 6, .08)
+        }
+
+        /* COMPONENT DEMOS */
+        .demo-block {
+            background: rgba(255, 255, 255, .02);
+            border: 1px solid rgba(255, 255, 255, .04);
+            border-radius: var(--radius);
+            padding: 48px 40px;
+            margin-top: 24px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px
+        }
+
+        .demo-label {
+            font-size: .6rem;
+            text-transform: uppercase;
+            letter-spacing: .15em;
+            color: var(--muted);
+            margin-bottom: 8px
+        }
+
+        .btn-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, var(--amber), var(--copper));
+            color: var(--void);
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            letter-spacing: .3px;
+            position: relative;
+            transition: all .4s;
+            text-decoration: none
+        }
+
+        .btn-cta::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--amber), var(--gold));
+            filter: blur(20px);
+            opacity: 0;
+            transition: opacity .4s;
+            z-index: -1
+        }
+
+        .btn-cta:hover {
+            transform: translateY(-2px)
+        }
+
+        .btn-cta:hover::before {
+            opacity: .4
+        }
+
+        .btn-outline {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            background: transparent;
+            border: 1px solid rgba(217, 119, 6, .2);
+            color: var(--cream);
+            font-family: var(--font-display);
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            letter-spacing: .3px;
+            transition: all .4s;
+            text-decoration: none;
+            backdrop-filter: blur(4px)
+        }
+
+        .btn-outline:hover {
+            border-color: var(--amber);
+            background: rgba(217, 119, 6, .05)
+        }
+
+        .eyebrow-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 6px 16px;
+            border-radius: 100px;
+            border: 1px solid rgba(217, 119, 6, .15);
+            background: rgba(217, 119, 6, .05);
+            font-size: .6rem;
+            font-weight: 700;
+            letter-spacing: .15em;
+            text-transform: uppercase;
+            color: var(--amber);
+            backdrop-filter: blur(8px)
+        }
+
+        .testimonial-card {
+            background: rgba(15, 14, 11, .6);
+            border: 1px solid rgba(255, 255, 255, .04);
+            border-radius: var(--radius);
+            padding: 40px 32px;
+            max-width: 500px;
+            backdrop-filter: blur(20px)
+        }
+
+        .testimonial-card .quote {
+            font-size: 1rem;
+            font-style: italic;
+            line-height: 1.7;
+            opacity: .85;
+            margin-bottom: 20px
+        }
+
+        .testimonial-card .author {
+            font-size: .8rem;
+            font-weight: 600;
+            color: var(--amber)
+        }
+
+        /* VOICE CARDS */
+        .voice-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 16px;
+            margin-top: 24px
+        }
+
+        .voice-card {
+            background: rgba(15, 14, 11, .6);
+            border: 1px solid rgba(255, 255, 255, .04);
+            border-radius: 16px;
+            padding: 28px 24px;
+            text-align: center;
+            backdrop-filter: blur(12px);
+            transition: all .4s
+        }
+
+        .voice-card:hover {
+            border-color: rgba(217, 119, 6, .1);
+            transform: translateY(-2px)
+        }
+
+        .voice-card .attr {
+            font-size: .6rem;
+            text-transform: uppercase;
+            letter-spacing: .15em;
+            color: var(--amber);
+            margin-bottom: 12px
+        }
+
+        .voice-card .val {
+            font-size: 1rem;
+            font-weight: 600
+        }
+
+        /* DOS/DONTS */
+        .dos-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 24px
+        }
+
+        .dos-table td {
+            padding: 14px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, .04);
+            font-size: .9rem
+        }
+
+        .dos-table tr:first-child td {
+            font-weight: 700;
+            font-size: .7rem;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            background: rgba(255, 255, 255, .02)
+        }
+
+        .donts-list {
+            list-style: none;
+            margin-top: 24px
+        }
+
+        .donts-list li {
+            padding: 14px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .04);
+            font-size: .9rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 12px
+        }
+
+        /* CODE BLOCK */
+        .code-block {
+            background: rgba(0, 0, 0, .4);
+            border: 1px solid rgba(255, 255, 255, .06);
+            border-radius: 12px;
+            padding: 32px;
+            margin-top: 24px;
+            overflow-x: auto
+        }
+
+        .code-block pre {
+            font-family: 'SF Mono', 'Fira Code', monospace;
+            font-size: .8rem;
+            line-height: 1.8;
+            color: rgba(255, 255, 255, .7)
+        }
+
+        .code-block .hl {
+            color: var(--amber)
+        }
+
+        /* FOOTER */
+        .brand-footer {
+            text-align: center;
+            padding: 60px 40px;
+            position: relative;
+            z-index: 1
+        }
+
+        .brand-footer .f-logo {
+            font-family: var(--font-display);
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -.5px;
+            margin-bottom: 8px
+        }
+
+        .brand-footer .f-logo span {
+            color: var(--amber)
+        }
+
+        .brand-footer .f-copy {
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 1px
+        }
+
+        /* PHILOSOPHY SECTION */
+        .philosophy-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-top: 32px
+        }
+
+        .philosophy-card {
+            border-radius: var(--radius);
+            padding: 48px 32px;
+            border: 1px solid rgba(255, 255, 255, .04);
+            background: rgba(15, 14, 11, .6);
+            backdrop-filter: blur(20px);
+            transition: all .5s;
+            position: relative;
+            overflow: hidden;
+            text-align: center
+        }
+
+        .philosophy-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at top, rgba(217, 119, 6, .03) 0%, transparent 70%);
+            pointer-events: none;
+            transition: all .5s
+        }
+
+        .philosophy-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(217, 119, 6, .12)
+        }
+
+        .philosophy-card .phi-icon {
+            font-size: 36px;
+            margin-bottom: 20px
+        }
+
+        .philosophy-card .phi-label {
+            font-size: .6rem;
+            text-transform: uppercase;
+            letter-spacing: .2em;
+            color: var(--amber);
+            margin-bottom: 16px;
+            font-weight: 700
+        }
+
+        .philosophy-card .phi-text {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 500;
+            line-height: 1.7;
+            color: var(--cream)
+        }
+
+        .values-strip {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-top: 40px;
+            justify-content: center
+        }
+
+        .value-chip {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            border-radius: 100px;
+            border: 1px solid rgba(217, 119, 6, .12);
+            background: rgba(217, 119, 6, .04);
+            font-size: .8rem;
+            font-weight: 600;
+            color: var(--cream);
+            transition: all .3s;
+            backdrop-filter: blur(8px)
+        }
+
+        .value-chip:hover {
+            border-color: rgba(217, 119, 6, .25);
+            background: rgba(217, 119, 6, .08);
+            transform: translateY(-2px)
+        }
+
+        .value-chip .chip-dot {
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--amber)
+        }
+
+        /* APPLICATIONS SECTION */
+        .app-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 32px
+        }
+
+        .app-card {
+            border-radius: var(--radius);
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .04);
+            background: rgba(15, 14, 11, .6);
+            backdrop-filter: blur(20px);
+            transition: all .5s
+        }
+
+        .app-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(217, 119, 6, .12)
+        }
+
+        .app-card-header {
+            padding: 32px;
+            border-bottom: 1px solid rgba(255, 255, 255, .04);
+            display: flex;
+            align-items: center;
+            gap: 16px
+        }
+
+        .app-card-header .app-icon {
+            font-size: 28px;
+            width: 52px;
+            height: 52px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 14px;
+            background: rgba(217, 119, 6, .08);
+            border: 1px solid rgba(217, 119, 6, .12)
+        }
+
+        .app-card-header h3 {
+            font-family: var(--font-display);
+            font-size: 1rem;
+            font-weight: 700
+        }
+
+        .app-card-header .app-sub {
+            font-size: .75rem;
+            color: var(--muted);
+            margin-top: 4px
+        }
+
+        .app-card-body {
+            padding: 28px 32px
+        }
+
+        .app-rule {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 0;
+            font-size: .85rem;
+            color: var(--warm-gray);
+            line-height: 1.6
+        }
+
+        .app-rule .rule-icon {
+            color: var(--amber);
+            font-weight: 700;
+            font-size: .75rem;
+            margin-top: 3px;
+            flex-shrink: 0
+        }
+
+        /* BACK TO TOP */
+        .back-to-top {
+            position: fixed;
+            bottom: 32px;
+            right: 32px;
+            width: 48px;
+            height: 48px;
+            border-radius: 14px;
+            background: rgba(217, 119, 6, .15);
+            border: 1px solid rgba(217, 119, 6, .2);
+            backdrop-filter: blur(20px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--amber);
+            font-size: 18px;
+            cursor: pointer;
+            transition: all .4s;
+            z-index: 999;
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+            text-decoration: none
+        }
+
+        .back-to-top.visible {
+            opacity: 1;
+            transform: translateY(0);
+            pointer-events: all
+        }
+
+        .back-to-top:hover {
+            background: rgba(217, 119, 6, .25);
+            transform: translateY(-2px)
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:768px) {
+            .container {
+                padding: 0 20px
+            }
+
+            .section {
+                padding: 60px 0
+            }
+
+            .pillars-grid,
+            .logo-variants,
+            .effects-grid,
+            .philosophy-grid {
+                grid-template-columns: 1fr
+            }
+
+            .type-item {
+                grid-template-columns: 1fr;
+                gap: 8px
+            }
+
+            .hero h1 {
+                letter-spacing: -1.5px
+            }
+
+            .nav-links {
+                display: none
+            }
+
+            .demo-block {
+                padding: 32px 20px
+            }
+
+            .voice-grid {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .app-grid {
+                grid-template-columns: 1fr
+            }
+
+            .values-strip {
+                justify-content: flex-start
+            }
+        }
+
+        /* PRINT STYLES */
+        @media print {
+            body {
+                background: white !important;
+                color: #222 !important
+            }
+
+            body::before,
+            body::after,
+            .glow-orb,
+            .brand-nav,
+            .back-to-top {
+                display: none !important
+            }
+
+            .section {
+                page-break-inside: avoid;
+                border: none
+            }
+
+            .pillar-card,
+            .voice-card,
+            .effect-card,
+            .philosophy-card,
+            .app-card {
+                border: 1px solid #ddd;
+                background: #f9f9f9 !important;
+                backdrop-filter: none
+            }
+
+            .hero {
+                min-height: auto;
+                padding: 40px 0
+            }
+
+            .divider {
+                background: #ddd
+            }
+
+            .section-label,
+            .hero-badge .dot,
+            .value-chip .chip-dot,
+            .rule-icon {
+                color: #B45309 !important
+            }
+
+            .hero h1 span,
+            .logo-main span,
+            .brand-nav .logo span {
+                -webkit-text-fill-color: #D97706;
+                color: #D97706
+            }
+
+            .reveal {
+                opacity: 1 !important;
+                transform: none !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- GLOW ORBS -->
+    <div class="glow-orb o1"></div>
+    <div class="glow-orb o2"></div>
+    <div class="glow-orb o3"></div>
+
+    <!-- NAV -->
+    <nav class="brand-nav">
+        <div class="logo">SALES <span>VELOCITY</span></div>
+        <ul class="nav-links">
+            <li><a href="#identidad">Identidad</a></li>
+            <li><a href="#filosofia">Filosofía</a></li>
+            <li><a href="#colores">Colores</a></li>
+            <li><a href="#tipografia">Tipografía</a></li>
+            <li><a href="#logo">Logo</a></li>
+            <li><a href="#efectos">Efectos</a></li>
+            <li><a href="#componentes">Componentes</a></li>
+            <li><a href="#voz">Voz</a></li>
+            <li><a href="#aplicaciones">Aplicaciones</a></li>
+            <li><a href="#tokens">Tokens</a></li>
+        </ul>
+        <div class="version">Manual de Marca v2.0</div>
+    </nav>
+
+    <!-- HERO -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge reveal"><span class="dot"></span> Brand Guidelines</div>
+            <h1 class="reveal reveal-delay-1">SALES<br><span>VELOCITY</span></h1>
+            <p class="reveal reveal-delay-2">Revenue Architecture — El sistema de identidad visual que combina la
+                calidez del lujo artesanal con la
+                precisión de la ingeniería moderna. Cada detalle diseñado para transmitir exclusividad, confianza y
+                crecimiento.</p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 01 · IDENTIDAD -->
+    <section class="section" id="identidad">
+        <div class="container">
+            <div class="section-label reveal">01 · Identidad de Marca</div>
+            <div class="section-title reveal reveal-delay-1">¿Quién es Sales Velocity?</div>
+            <div class="section-desc reveal reveal-delay-2">Agencia premium de crecimiento digital para marcas
+                personales. Construimos
+                máquinas de ingresos predecibles para expertos que quieren dominar su mercado.</div>
+
+            <table class="id-table">
+                <tr>
+                    <td>Nombre</td>
+                    <td>Sales Velocity</td>
+                </tr>
+                <tr>
+                    <td>Tagline</td>
+                    <td><em>"Revenue Architecture"</em></td>
+                </tr>
+                <tr>
+                    <td>Industria</td>
+                    <td>Crecimiento Digital Premium / Marketing para Marcas Personales</td>
+                </tr>
+                <tr>
+                    <td>Personalidad</td>
+                    <td>Premium, Moderna, Directa, Confiable, Aspiracional</td>
+                </tr>
+                <tr>
+                    <td>Handle</td>
+                    <td>@salesvelocitysystem</td>
+                </tr>
+                <tr>
+                    <td>Web</td>
+                    <td>luchobranding.com</td>
+                </tr>
+                <tr>
+                    <td>Fundador</td>
+                    <td>Luis Felipe (Lucho)</td>
+                </tr>
+                <tr>
+                    <td>Ubicación</td>
+                    <td>Colombia 🇨🇴 → Mercado USA 🇺🇸</td>
+                </tr>
+            </table>
+
+            <h3 style="font-family:var(--font-display);font-size:1.1rem;margin-bottom:20px">Pilares de Marca</h3>
+            <div class="pillars-grid">
+                <div class="pillar-card">
+                    <div class="number">Pilar 01</div>
+                    <h3>🎯 Oferta Irresistible</h3>
+                    <p>Creamos ofertas Grand Slam basadas en el framework de Alex Hormozi — deseadas, claras,
+                        irresistibles y premium.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="number">Pilar 02</div>
+                    <h3>⚙️ Sistema de Ventas</h3>
+                    <p>Automatizaciones en GoHighLevel que convierten leads en clientes de forma predecible. Todo se
+                        mide, todo se optimiza.</p>
+                </div>
+                <div class="pillar-card">
+                    <div class="number">Pilar 03</div>
+                    <h3>📣 Motor de Adquisición</h3>
+                    <p>Meta Ads de alta conversión + contenido orgánico viral. Dos motores que alimentan el sistema de
+                        forma constante.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 01.5 · FILOSOFÍA DE MARCA -->
+    <section class="section" id="filosofia">
+        <div class="container">
+            <div class="section-label reveal">01.5 · Filosofía de Marca</div>
+            <div class="section-title reveal reveal-delay-1">Brand Philosophy</div>
+            <div class="section-desc reveal reveal-delay-2">Los principios fundamentales que guían cada decisión, cada
+                diseño, y cada interacción de Sales Velocity.</div>
+
+            <div class="philosophy-grid">
+                <div class="philosophy-card reveal">
+                    <div class="phi-icon">🎯</div>
+                    <div class="phi-label">Misión</div>
+                    <div class="phi-text">Ayudar a las marcas personales a <strong style="color:var(--amber)">crecer y
+                            vender más</strong> para que puedan seguir impactando la vida de las personas a las que
+                        sirven.</div>
+                </div>
+                <div class="philosophy-card reveal reveal-delay-1">
+                    <div class="phi-icon">🌎</div>
+                    <div class="phi-label">Visión</div>
+                    <div class="phi-text"><strong style="color:var(--amber)">Conectar a las personas que tienen
+                            conocimiento</strong> con las personas que lo necesitan. Ser el puente entre el experto y
+                        quien necesita su ayuda.</div>
+                </div>
+                <div class="philosophy-card reveal reveal-delay-2">
+                    <div class="phi-icon">⚡</div>
+                    <div class="phi-label">Propósito</div>
+                    <div class="phi-text">Erradicar la pobreza mental. Que cada experto que tenga algo que enseñar pueda
+                        <strong style="color:var(--amber)">llegar a miles de personas</strong> con un sistema que
+                        funcione.</div>
+                </div>
+            </div>
+
+            <div class="values-strip reveal">
+                <div class="value-chip"><span class="chip-dot"></span> Servicio</div>
+                <div class="value-chip"><span class="chip-dot"></span> Impacto Multiplicado</div>
+                <div class="value-chip"><span class="chip-dot"></span> Excelencia Premium</div>
+                <div class="value-chip"><span class="chip-dot"></span> Crecimiento Constante</div>
+                <div class="value-chip"><span class="chip-dot"></span> Compromiso de Palabra</div>
+            </div>
+
+            <p style="margin-top:40px;font-size:.85rem;opacity:.6;border-left:3px solid var(--amber);padding-left:16px"
+                class="reveal">
+                <strong>Mantra:</strong> <em>"Si decimos sí, es sí. Si decimos no, es no."</em> — Lucho. Cada
+                entregable, cada interacción, cada diseño refleja estos valores.
+            </p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 02 · COLORES -->
+    <section class="section" id="colores">
+        <div class="container">
+            <div class="section-label reveal">02 · Paleta de Colores</div>
+            <div class="section-title reveal reveal-delay-1">Color System</div>
+            <div class="section-desc reveal reveal-delay-2">Una paleta cálida y sofisticada: bases oscuras profundas con
+                acentos amber y gold
+                que transmiten exclusividad sin frialdad.</div>
+
+            <div
+                style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:16px">
+                Bases Oscuras</div>
+            <div class="color-grid">
+                <div class="swatch">
+                    <div class="color-box" style="background:#0A0908"></div>
+                    <div class="color-info">
+                        <div class="color-name">Void</div>
+                        <div class="color-hex">#0A0908</div>
+                        <div class="color-use">Fondo principal</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="color-box" style="background:#0F0E0B"></div>
+                    <div class="color-info">
+                        <div class="color-name">Carbon</div>
+                        <div class="color-hex">#0F0E0B</div>
+                        <div class="color-use">Nav, cards base</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="color-box" style="background:#15130E"></div>
+                    <div class="color-info">
+                        <div class="color-name">Espresso</div>
+                        <div class="color-hex">#15130E</div>
+                        <div class="color-use">Secciones alternas</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="color-box" style="background:#1E1B14"></div>
+                    <div class="color-info">
+                        <div class="color-name">Walnut</div>
+                        <div class="color-hex">#1E1B14</div>
+                        <div class="color-use">Banners, elevación</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="color-box" style="background:#2A2620"></div>
+                    <div class="color-info">
+                        <div class="color-name">Stone</div>
+                        <div class="color-hex">#2A2620</div>
+                        <div class="color-use">Bordes, separadores</div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:40px 0 16px">
+                Acentos Cálidos</div>
+            <div class="color-grid">
+                <div class="swatch">
+                    <div class="color-box" style="background:#D97706"></div>
+                    <div class="color-info">
+                        <div class="color-name">Amber</div>
+                        <div class="color-hex">#D97706</div>
+                        <div class="color-use">Acento principal</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="color-box" style="background:#F59E0B"></div>
+                    <div class="color-info">
+                        <div class="color-name">Amber Light</div>
+                        <div class="color-hex">#F59E0B</div>
+                        <div class="color-use">Highlights, gradientes</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="color-box" style="background:#B45309"></div>
+                    <div class="color-info">
+                        <div class="color-name">Copper</div>
+                        <div class="color-hex">#B45309</div>
+                        <div class="color-use">CTAs hover, profundidad</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="color-box" style="background:#FBBF24"></div>
+                    <div class="color-info">
+                        <div class="color-name">Gold</div>
+                        <div class="color-hex">#FBBF24</div>
+                        <div class="color-use">Destacados, gradientes</div>
+                    </div>
+                </div>
+            </div>
+
+            <div
+                style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin:40px 0 16px">
+                Neutrales y Texto</div>
+            <div class="color-grid">
+                <div class="swatch">
+                    <div class="color-box" style="background:#E8DED0"></div>
+                    <div class="color-info" style="color:var(--void)">
+                        <div class="color-name" style="color:var(--void)">Sand</div>
+                        <div class="color-hex">#E8DED0</div>
+                        <div class="color-use" style="color:var(--muted)">Fondos light mode</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="color-box" style="background:#F5F0E8"></div>
+                    <div class="color-info" style="color:var(--void)">
+                        <div class="color-name" style="color:var(--void)">Cream</div>
+                        <div class="color-hex">#F5F0E8</div>
+                        <div class="color-use" style="color:var(--muted)">Texto principal</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="color-box" style="background:#9C9488"></div>
+                    <div class="color-info">
+                        <div class="color-name">Warm Gray</div>
+                        <div class="color-hex">#9C9488</div>
+                        <div class="color-use">Texto secundario</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="color-box" style="background:#6B6560"></div>
+                    <div class="color-info">
+                        <div class="color-name">Muted</div>
+                        <div class="color-hex">#6B6560</div>
+                        <div class="color-use">Labels, captions</div>
+                    </div>
+                </div>
+            </div>
+
+            <p style="margin-top:32px;font-size:.85rem;opacity:.6;border-left:3px solid var(--amber);padding-left:16px">
+                <strong>Regla:</strong> El amber es un <em>acento</em>, no un color dominante. Máx 10–15% de presencia
+                visual. Las bases oscuras cálidas dominan, creando un lienzo elegante para que el amber brille.
+            </p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 03 · TIPOGRAFÍA -->
+    <section class="section" id="tipografia">
+        <div class="container">
+            <div class="section-label reveal">03 · Tipografía</div>
+            <div class="section-title reveal reveal-delay-1">Type System</div>
+            <div class="section-desc reveal reveal-delay-2">Tres fuentes complementarias de Google Fonts que crean un
+                sistema tipográfico
+                versátil y premium.</div>
+
+            <div class="voice-grid" style="margin-bottom:48px">
+                <div class="voice-card">
+                    <div class="attr">Display / Títulos</div>
+                    <div class="val" style="font-family:'DM Sans'">DM Sans</div>
+                </div>
+                <div class="voice-card">
+                    <div class="attr">Cuerpo / Lectura</div>
+                    <div class="val" style="font-family:'Inter'">Inter</div>
+                </div>
+                <div class="voice-card">
+                    <div class="attr">Accent / UI</div>
+                    <div class="val" style="font-family:'Outfit'">Outfit</div>
+                </div>
+            </div>
+
+            <div class="type-item">
+                <div class="type-label">Display</div>
+                <div style="font-family:'DM Sans';font-size:clamp(36px,5vw,56px);font-weight:900;letter-spacing:-2px">
+                    Sales Velocity</div>
+            </div>
+            <div class="type-item">
+                <div class="type-label">H1</div>
+                <div style="font-family:'DM Sans';font-size:36px;font-weight:800;letter-spacing:-1px">Construimos
+                    máquinas de ingresos</div>
+            </div>
+            <div class="type-item">
+                <div class="type-label">H2</div>
+                <div style="font-family:'DM Sans';font-size:24px;font-weight:700;letter-spacing:-.5px">La arquitectura
+                    detrás del crecimiento</div>
+            </div>
+            <div class="type-item">
+                <div class="type-label">Body</div>
+                <div style="font-family:'Inter';font-size:15px;font-weight:400;color:var(--warm-gray);line-height:1.75">
+                    Estrategia, implementación y aceleración de ingresos para negocios premium que buscan dominar su
+                    mercado digital con sistemas predecibles.</div>
+            </div>
+            <div class="type-item">
+                <div class="type-label">Caption</div>
+                <div
+                    style="font-family:'DM Sans';font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted)">
+                    Diseñado para líderes de industria</div>
+            </div>
+            <div class="type-item">
+                <div class="type-label">Accent</div>
+                <div style="font-family:'DM Sans';font-size:14px;font-weight:600;color:var(--amber)">Revenue
+                    Architecture™</div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 04 · LOGO -->
+    <section class="section" id="logo">
+        <div class="container">
+            <div class="section-label reveal">04 · Logo</div>
+            <div class="section-title reveal reveal-delay-1">Brand Mark</div>
+            <div class="section-desc reveal reveal-delay-2">El logotipo de Sales Velocity es tipográfico — potencia
+                visual sin depender de un
+                ícono. El peso está en la palabra VELOCITY con gradiente amber.</div>
+
+            <div class="logo-showcase">
+                <div class="logo-main">SALES <span>VELOCITY</span></div>
+                <div class="logo-sub">Revenue Architecture</div>
+            </div>
+
+            <div
+                style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:24px">
+                Variaciones</div>
+            <div class="logo-variants">
+                <div class="logo-variant on-dark">
+                    <div class="lv-title">SV<span>.</span></div>
+                    <div class="lv-sub">Sales Velocity</div>
+                    <div class="lv-label">Sobre oscuro</div>
+                </div>
+                <div class="logo-variant on-light">
+                    <div class="lv-title">SV<span>.</span></div>
+                    <div class="lv-sub" style="color:var(--muted)">Sales Velocity</div>
+                    <div class="lv-label" style="color:var(--muted)">Sobre claro</div>
+                </div>
+                <div class="logo-variant on-amber">
+                    <div class="lv-title">SV<span>.</span></div>
+                    <div class="lv-sub" style="color:rgba(10,9,8,.5)">Sales Velocity</div>
+                    <div class="lv-label" style="color:rgba(10,9,8,.4)">Sobre amber</div>
+                </div>
+            </div>
+
+            <p style="font-size:.85rem;opacity:.6;border-left:3px solid var(--amber);padding-left:16px"><strong>Zona de
+                    exclusión:</strong> Respetar siempre un margen mínimo del 50% de la altura del logo alrededor del
+                mark.</p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 05 · EFECTOS PREMIUM -->
+    <section class="section" id="efectos">
+        <div class="container">
+            <div class="section-label reveal">05 · Efectos Premium</div>
+            <div class="section-title reveal reveal-delay-1">Capas de Premium</div>
+            <div class="section-desc reveal reveal-delay-2">Tres capas de efecto visual que elevan cualquier superficie
+                a un nivel premium,
+                trabajando juntas de forma sutil.</div>
+
+            <div class="effects-grid">
+                <div class="effect-card glow-demo">
+                    <div class="effect-icon">✦</div>
+                    <div class="effect-name">Ambient Glow</div>
+                    <div class="effect-desc">Resplandores cálidos amber detrás de elementos clave. Crean profundidad y
+                        sensación de lujo sin ser agresivos.</div>
+                </div>
+                <div class="effect-card dot-demo">
+                    <div class="effect-icon">⬡</div>
+                    <div class="effect-name">Dot Grid Pattern</div>
+                    <div class="effect-desc">Patrón de puntos sutiles en amber que recorre fondos. Da textura y
+                        estructura sin distraer.</div>
+                </div>
+                <div class="effect-card glass-demo">
+                    <div class="effect-icon">◇</div>
+                    <div class="effect-name">Warm Glassmorphism</div>
+                    <div class="effect-desc">Cards translúcidos con blur y bordes luminosos. Profundidad de capas
+                        premium y moderna.</div>
+                </div>
+            </div>
+
+            <div class="voice-grid">
+                <div class="voice-card">
+                    <div class="attr">Grain Texture</div>
+                    <div class="val">opacity: 0.025</div>
+                </div>
+                <div class="voice-card">
+                    <div class="attr">Dot Size</div>
+                    <div class="val">1px @ 32px grid</div>
+                </div>
+                <div class="voice-card">
+                    <div class="attr">Glow Blur</div>
+                    <div class="val">100px radius</div>
+                </div>
+                <div class="voice-card">
+                    <div class="attr">Glass Blur</div>
+                    <div class="val">20px backdrop</div>
+                </div>
+                <div class="voice-card">
+                    <div class="attr">Animation</div>
+                    <div class="val">12s ease float</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 06 · COMPONENTES -->
+    <section class="section" id="componentes">
+        <div class="container">
+            <div class="section-label reveal">06 · Componentes</div>
+            <div class="section-title reveal reveal-delay-1">UI Kit</div>
+
+            <div class="demo-block"><span class="demo-label">CTA Button (Primary)</span><a href="#"
+                    class="btn-cta">Reservar sesión estratégica →</a></div>
+            <div class="demo-block"><span class="demo-label">Outline Button (Secondary)</span><a href="#"
+                    class="btn-outline">Ver casos de éxito</a></div>
+            <div class="demo-block"><span class="demo-label">Eyebrow Badge</span><span class="eyebrow-badge"><span
+                        class="dot"
+                        style="width:6px;height:6px;border-radius:50%;background:var(--amber);animation:pulse 2s ease-in-out infinite;display:inline-block"></span>
+                    Revenue Architecture</span></div>
+            <div class="demo-block"><span class="demo-label">Testimonial Card</span>
+                <div class="testimonial-card">
+                    <p class="quote">"De $8K a $47K en 90 días. El Sales Velocity System cambió completamente mi
+                        negocio. Por fin tengo un flujo de clientes predecible."</p>
+                    <p class="author">— Jorge V. · Tax Preparation & Insurance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 07 · FOTOGRAFÍA -->
+    <section class="section" id="fotografia">
+        <div class="container">
+            <div class="section-label reveal">07 · Dirección de Fotografía</div>
+            <div class="section-title reveal reveal-delay-1">Visual Direction</div>
+
+            <div class="voice-grid">
+                <div class="voice-card">
+                    <div class="attr">Iluminación</div>
+                    <div class="val">Cálida, natural</div>
+                </div>
+                <div class="voice-card">
+                    <div class="attr">Mood</div>
+                    <div class="val">Aspiracional, confiable</div>
+                </div>
+                <div class="voice-card">
+                    <div class="attr">Composición</div>
+                    <div class="val">Limpia, espaciada</div>
+                </div>
+                <div class="voice-card">
+                    <div class="attr">Color</div>
+                    <div class="val">Tonos warm, contraste</div>
+                </div>
+                <div class="voice-card">
+                    <div class="attr">Pose / Estilo</div>
+                    <div class="val">Profesional pero cercano</div>
+                </div>
+            </div>
+
+            <p style="margin-top:32px;font-size:.85rem;opacity:.6;border-left:3px solid var(--amber);padding-left:16px">
+                <strong>Regla:</strong> Las fotos siempre llevan overlay oscuro cuando se usan como fondo para mantener
+                legibilidad del texto.
+            </p>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 08 · TONO DE VOZ -->
+    <section class="section" id="voz">
+        <div class="container">
+            <div class="section-label reveal">08 · Tono de Voz</div>
+            <div class="section-title reveal reveal-delay-1">Brand Voice</div>
+
+            <div class="voice-grid" style="margin-bottom:48px">
+                <div class="voice-card">
+                    <div class="attr">Idioma</div>
+                    <div class="val">Español (LATAM/USA)</div>
+                </div>
+                <div class="voice-card">
+                    <div class="attr">Tono</div>
+                    <div class="val">Directo, Premium</div>
+                </div>
+                <div class="voice-card">
+                    <div class="attr">Perspectiva</div>
+                    <div class="val">Amigo estratégico</div>
+                </div>
+                <div class="voice-card">
+                    <div class="attr">Energía</div>
+                    <div class="val">Ambición sana + Confianza</div>
+                </div>
+            </div>
+
+            <div
+                style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:16px">
+                Frases Clave</div>
+            <ul style="list-style:none;padding:0;margin-bottom:48px">
+                <li style="padding:12px 0;border-bottom:1px solid rgba(255,255,255,.04);font-style:italic;opacity:.85">
+                    "Prefiero que mi mensaje llegue a 10 personas que conviertan, a enviarlo a un millón que no hagan
+                    nada."</li>
+                <li style="padding:12px 0;border-bottom:1px solid rgba(255,255,255,.04);font-style:italic;opacity:.85">
+                    "Lo que no se mide no se puede mejorar."</li>
+                <li style="padding:12px 0;border-bottom:1px solid rgba(255,255,255,.04);font-style:italic;opacity:.85">
+                    "Lo plano se muere en el mundo de hoy."</li>
+                <li style="padding:12px 0;border-bottom:1px solid rgba(255,255,255,.04);font-style:italic;opacity:.85">
+                    "Conectar a los que saben con los que necesitan. Ese es el juego."</li>
+            </ul>
+
+            <div
+                style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:16px">
+                Dos vs Don'ts</div>
+            <table class="dos-table">
+                <tr>
+                    <td style="color:#2ecc71">✅ SÍ DECIR</td>
+                    <td style="color:#e74c3c">❌ NO DECIR</td>
+                </tr>
+                <tr>
+                    <td>"Construimos tu sistema de ventas"</td>
+                    <td>"Manejamos tus redes sociales"</td>
+                </tr>
+                <tr>
+                    <td>"Resultados predecibles y medibles"</td>
+                    <td>"Te hacemos viral"</td>
+                </tr>
+                <tr>
+                    <td>"Inversión en tu crecimiento"</td>
+                    <td>"Precio / costo / gasto"</td>
+                </tr>
+                <tr>
+                    <td>"Sistema de Revenue Architecture"</td>
+                    <td>"Agencia de marketing digital"</td>
+                </tr>
+            </table>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 09 · APLICACIONES -->
+    <section class="section" id="aplicaciones">
+        <div class="container">
+            <div class="section-label reveal">09 · Aplicaciones de Marca</div>
+            <div class="section-title reveal reveal-delay-1">Brand Applications</div>
+            <div class="section-desc reveal reveal-delay-2">Cómo se aplica la identidad de Sales Velocity en cada punto
+                de contacto con el cliente y en las herramientas del ecosistema.</div>
+
+            <div class="app-grid">
+                <div class="app-card reveal">
+                    <div class="app-card-header">
+                        <div class="app-icon">📱</div>
+                        <div>
+                            <h3>Redes Sociales</h3>
+                            <div class="app-sub">Instagram, TikTok, YouTube, Facebook</div>
+                        </div>
+                    </div>
+                    <div class="app-card-body">
+                        <div class="app-rule"><span class="rule-icon">→</span> Fotos/videos con tonos cálidos, overlay
+                            oscuro en thumbnails</div>
+                        <div class="app-rule"><span class="rule-icon">→</span> Texto sobre imágenes en DM Sans Bold +
+                            amber</div>
+                        <div class="app-rule"><span class="rule-icon">→</span> Carruseles con fondo Void (#0A0908) y
+                            cards glassmorphism</div>
+                        <div class="app-rule"><span class="rule-icon">→</span> Bio y highlights con paleta amber + cream
+                        </div>
+                        <div class="app-rule"><span class="rule-icon">→</span> Stories: fondo oscuro + tipografía
+                            premium, no stickers genéricos</div>
+                    </div>
+                </div>
+                <div class="app-card reveal reveal-delay-1">
+                    <div class="app-card-header">
+                        <div class="app-icon">⚙️</div>
+                        <div>
+                            <h3>GoHighLevel</h3>
+                            <div class="app-sub">Funnels, Landing Pages, Forms, Emails</div>
+                        </div>
+                    </div>
+                    <div class="app-card-body">
+                        <div class="app-rule"><span class="rule-icon">→</span> Custom CSS con <code
+                                style="color:var(--amber);font-size:.8rem">!important</code> para override de estilos
+                            default</div>
+                        <div class="app-rule"><span class="rule-icon">→</span> Formularios con bordes redondeados
+                            (12px), inputs premium</div>
+                        <div class="app-rule"><span class="rule-icon">→</span> Emails: fondo #0F0E0B, texto cream, CTA
+                            amber gradient</div>
+                        <div class="app-rule"><span class="rule-icon">→</span> Landing pages: hero con glow orb + dot
+                            pattern</div>
+                        <div class="app-rule"><span class="rule-icon">→</span> Botones CTA con gradient amber→copper +
+                            hover glow</div>
+                    </div>
+                </div>
+                <div class="app-card reveal reveal-delay-2">
+                    <div class="app-card-header">
+                        <div class="app-icon">📊</div>
+                        <div>
+                            <h3>Presentaciones</h3>
+                            <div class="app-sub">Decks, Propuestas, Reportes</div>
+                        </div>
+                    </div>
+                    <div class="app-card-body">
+                        <div class="app-rule"><span class="rule-icon">→</span> Slide deck fondo oscuro (Void/Carbon) con
+                            tipografía DM Sans</div>
+                        <div class="app-rule"><span class="rule-icon">→</span> Datos destacados en amber/gold sobre
+                            cards glassmorphism</div>
+                        <div class="app-rule"><span class="rule-icon">→</span> Gráficos con palette amber + warm-gray
+                            (nunca colores fríos)</div>
+                        <div class="app-rule"><span class="rule-icon">→</span> Footer con "SV." + "Revenue Architecture"
+                            en cada slide</div>
+                        <div class="app-rule"><span class="rule-icon">→</span> Transiciones suaves, nunca efectos
+                            llamativos/genéricos</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="app-grid" style="margin-top:24px">
+                <div class="app-card reveal">
+                    <div class="app-card-header">
+                        <div class="app-icon">💬</div>
+                        <div>
+                            <h3>Comunicaciones</h3>
+                            <div class="app-sub">WhatsApp, SMS, Email Sequences</div>
+                        </div>
+                    </div>
+                    <div class="app-card-body">
+                        <div class="app-rule"><span class="rule-icon">→</span> Tono directo pero cercano — como amigo
+                            estratégico</div>
+                        <div class="app-rule"><span class="rule-icon">→</span> Usar *bold* y _italic_ en WhatsApp para
+                            estructura</div>
+                        <div class="app-rule"><span class="rule-icon">→</span> SMS: máx 160 chars, CTA directo con link
+                            corto</div>
+                        <div class="app-rule"><span class="rule-icon">→</span> Firma: "→ Sales Velocity" al final de
+                            cada secuencia</div>
+                    </div>
+                </div>
+                <div class="app-card reveal reveal-delay-1">
+                    <div class="app-card-header">
+                        <div class="app-icon">🌐</div>
+                        <div>
+                            <h3>Web & Deliverables</h3>
+                            <div class="app-sub">GitHub Pages, Brand Manuals, VSLs</div>
+                        </div>
+                    </div>
+                    <div class="app-card-body">
+                        <div class="app-rule"><span class="rule-icon">→</span> HTML single-file con CSS tokens embebidos
+                        </div>
+                        <div class="app-rule"><span class="rule-icon">→</span> Deploy vía GitHub Pages
+                            (velocity-sudo.github.io)</div>
+                        <div class="app-rule"><span class="rule-icon">→</span> Google Fonts import en head (DM Sans +
+                            Inter + Outfit)</div>
+                        <div class="app-rule"><span class="rule-icon">→</span> Mobile-first, responsive con media
+                            queries estándar</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 10 · DESIGN TOKENS -->
+    <section class="section" id="tokens">
+        <div class="container">
+            <div class="section-label reveal">10 · Design Tokens</div>
+            <div class="section-title reveal reveal-delay-1">CSS Variables</div>
+            <div class="section-desc reveal reveal-delay-2">Copia este bloque de tokens en cualquier proyecto de Sales
+                Velocity para mantener
+                consistencia visual perfecta.</div>
+
+            <div class="code-block">
+                <pre><span class="hl">:root</span> {
+    <span class="hl">/* ── Bases Oscuras ── */</span>
+    --sv-void: #0A0908;
+    --sv-carbon: #0F0E0B;
+    --sv-espresso: #15130E;
+    --sv-walnut: #1E1B14;
+    --sv-stone: #2A2620;
+
+    <span class="hl">/* ── Acentos Cálidos ── */</span>
+    --sv-amber: #D97706;
+    --sv-amber-light: #F59E0B;
+    --sv-copper: #B45309;
+    --sv-gold: #FBBF24;
+
+    <span class="hl">/* ── Neutrales ── */</span>
+    --sv-sand: #E8DED0;
+    --sv-cream: #F5F0E8;
+    --sv-warm-gray: #9C9488;
+    --sv-muted: #6B6560;
+
+    <span class="hl">/* ── Gradientes ── */</span>
+    --sv-gradient-amber: linear-gradient(135deg, #D97706, #B45309);
+    --sv-gradient-gold: linear-gradient(135deg, #D97706, #FBBF24, #F59E0B);
+    --sv-gradient-bg: linear-gradient(180deg, #0F0E0B, #15130E);
+
+    <span class="hl">/* ── Efectos ── */</span>
+    --sv-glow: rgba(217, 119, 6, 0.06);
+    --sv-dot-pattern: radial-gradient(circle, rgba(217,119,6,.06) 1px, transparent 1px);
+    --sv-glass-bg: rgba(15, 14, 11, 0.6);
+    --sv-glass-blur: blur(20px);
+    --sv-glass-border: 1px solid rgba(255, 255, 255, 0.04);
+
+    <span class="hl">/* ── Tipografía ── */</span>
+    --sv-font-display: 'DM Sans', sans-serif;
+    --sv-font-body: 'Inter', sans-serif;
+    --sv-font-accent: 'Outfit', sans-serif;
+
+    <span class="hl">/* ── Espaciado ── */</span>
+    --sv-radius: 20px;
+    --sv-radius-sm: 12px;
+    --sv-max-w: 1100px;
+    --sv-transition: all 0.4s ease;
+}</pre>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- 11 · USOS INCORRECTOS -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label reveal">11 · Usos Incorrectos</div>
+            <div class="section-title reveal reveal-delay-1">Don'ts</div>
+
+            <ul class="donts-list">
+                <li><span style="color:#e74c3c;font-weight:700;flex-shrink:0">🚫</span> Usar colores fríos (azul, verde,
+                    púrpura) — la paleta es exclusivamente cálida</li>
+                <li><span style="color:#e74c3c;font-weight:700;flex-shrink:0">🚫</span> Usar el amber como color
+                    dominante — máx 10-15% de presencia visual</li>
+                <li><span style="color:#e74c3c;font-weight:700;flex-shrink:0">🚫</span> Tipografías no autorizadas —
+                    solo DM Sans, Inter, Outfit</li>
+                <li><span style="color:#e74c3c;font-weight:700;flex-shrink:0">🚫</span> Fondos blancos puros (#FFF) —
+                    usar Cream (#F5F0E8) o Sand (#E8DED0)</li>
+                <li><span style="color:#e74c3c;font-weight:700;flex-shrink:0">🚫</span> Bordes afilados en cards — el
+                    look es redondeado (20px)</li>
+                <li><span style="color:#e74c3c;font-weight:700;flex-shrink:0">🚫</span> Imágenes sin overlay oscuro como
+                    fondo — el texto necesita contraste</li>
+                <li><span style="color:#e74c3c;font-weight:700;flex-shrink:0">🚫</span> Animaciones rápidas o agresivas
+                    — todo sutil, timing > 0.4s</li>
+                <li><span style="color:#e74c3c;font-weight:700;flex-shrink:0">🚫</span> Glassmorphism sin la tinta
+                    cálida — siempre usar rgba(15,14,11) no rgba(255,255,255)</li>
+                <li><span style="color:#e74c3c;font-weight:700;flex-shrink:0">🚫</span> Texto centrado sin max-width —
+                    pierde legibilidad</li>
+                <li><span style="color:#e74c3c;font-weight:700;flex-shrink:0">🚫</span> Decir "agencia de redes
+                    sociales" — somos Revenue Architecture</li>
+            </ul>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- FOOTER -->
+    <footer class="brand-footer">
+        <div class="f-logo reveal">SV<span>.</span></div>
+        <div class="f-copy reveal reveal-delay-1">SALES VELOCITY — MANUAL DE MARCA v2.0 — MARZO 2026</div>
+        <div style="margin-top:16px;font-size:10px;color:var(--muted);letter-spacing:1px" class="reveal reveal-delay-2">
+            Diseñado por Sales Velocity × Antigravity</div>
+    </footer>
+
+    <!-- BACK TO TOP -->
+    <a href="#" class="back-to-top" id="backToTop" title="Ir arriba">↑</a>
+
+    <!-- SCROLL REVEAL + BACK TO TOP JS -->
+    <script>
+        // Scroll Reveal
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+
+        // Back to Top
+        const backBtn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 600) {
+                backBtn.classList.add('visible');
+            } else {
+                backBtn.classList.remove('visible');
+            }
+        });
+
+        // Smooth nav active state
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const sections = document.querySelectorAll('.section[id]');
+        const navObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    navLinks.forEach(link => {
+                        link.style.color = '';
+                        if (link.getAttribute('href') === '#' + entry.target.id) {
+                            link.style.color = '#D97706';
+                        }
+                    });
+                }
+            });
+        }, { threshold: 0.3 });
+
+        sections.forEach(section => navObserver.observe(section));
+    </script>
+
+</body>
+
+</html>

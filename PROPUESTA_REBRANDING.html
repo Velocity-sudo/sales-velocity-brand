@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Propuesta de Rebranding — LuchoBranding → Sales Velocity</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  /* Current LuchoBranding Colors */
+  --lb-red: #FF3300;
+  --lb-yellow: #FFD700;
+  --lb-black: #1A1A1A;
+  
+  /* Current Sales Velocity Colors */
+  --sv-navy: #1B2340;
+  --sv-blue: #3B82F6;
+  --sv-blue-light: #60A5FA;
+  
+  /* Proposed Evolution Colors */
+  --prop-dark: #0A0E1A;
+  --prop-navy: #111827;
+  --prop-blue: #2563EB;
+  --prop-electric: #3B82F6;
+  --prop-accent: #06B6D4;
+  --prop-gold: #F59E0B;
+  --prop-white: #F8FAFC;
+  --prop-gray: #94A3B8;
+  
+  --font-display: 'Outfit', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --radius: 16px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: var(--font-body);
+  background: var(--prop-dark);
+  color: var(--prop-white);
+  overflow-x: hidden;
+  scroll-behavior: smooth;
+}
+
+/* Navigation */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  background: rgba(10, 14, 26, 0.85);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 16px 0;
+}
+
+.nav-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo { font-family: var(--font-display); font-weight: 800; font-size: 18px; }
+.nav-logo span { color: var(--prop-electric); }
+
+.nav-links { display: flex; gap: 24px; }
+.nav-links a {
+  color: var(--prop-gray);
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  transition: color 0.3s;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+.nav-links a:hover { color: var(--prop-white); }
+
+/* Sections */
+section {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 100px 32px;
+}
+
+/* Hero */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding-top: 80px;
+  position: relative;
+}
+
+.hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600px;
+  height: 600px;
+  background: radial-gradient(circle, rgba(37, 99, 235, 0.15) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(37, 99, 235, 0.1);
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  padding: 8px 20px;
+  border-radius: 100px;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--prop-electric);
+  margin-bottom: 32px;
+  letter-spacing: 0.5px;
+}
+
+.hero h1 {
+  font-family: var(--font-display);
+  font-size: clamp(42px, 6vw, 72px);
+  font-weight: 900;
+  line-height: 1.05;
+  margin-bottom: 24px;
+  max-width: 900px;
+}
+
+.hero h1 .gradient {
+  background: linear-gradient(135deg, var(--prop-electric), var(--prop-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero p {
+  font-size: 18px;
+  color: var(--prop-gray);
+  max-width: 600px;
+  line-height: 1.7;
+  margin-bottom: 40px;
+}
+
+/* Audit Section */
+.section-header {
+  text-align: center;
+  margin-bottom: 64px;
+}
+
+.section-tag {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: var(--prop-electric);
+  margin-bottom: 16px;
+}
+
+.section-header h2 {
+  font-family: var(--font-display);
+  font-size: clamp(32px, 4vw, 48px);
+  font-weight: 800;
+  margin-bottom: 16px;
+  line-height: 1.1;
+}
+
+.section-header p {
+  color: var(--prop-gray);
+  font-size: 16px;
+  max-width: 600px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+/* Cards */
+.audit-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 32px;
+  margin-bottom: 48px;
+}
+
+.audit-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  padding: 40px;
+  transition: all 0.4s ease;
+}
+
+.audit-card:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(37, 99, 235, 0.2);
+  transform: translateY(-2px);
+}
+
+.audit-card .label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--prop-gray);
+  margin-bottom: 12px;
+}
+
+.audit-card h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 16px;
+}
+
+.audit-card p {
+  color: var(--prop-gray);
+  font-size: 14px;
+  line-height: 1.7;
+}
+
+.audit-card .color-row {
+  display: flex;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.audit-card .swatch {
+  width: 48px;
+  height: 48px;
+  border-radius: 12px;
+  border: 2px solid rgba(255,255,255,0.1);
+  position: relative;
+  cursor: pointer;
+}
+
+.audit-card .swatch span {
+  position: absolute;
+  bottom: -24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 10px;
+  font-family: monospace;
+  color: var(--prop-gray);
+  white-space: nowrap;
+}
+
+/* Verdict */
+.verdict {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.08), rgba(6, 182, 212, 0.05));
+  border: 1px solid rgba(37, 99, 235, 0.15);
+  border-radius: var(--radius);
+  padding: 48px;
+  text-align: center;
+}
+
+.verdict h3 {
+  font-family: var(--font-display);
+  font-size: 28px;
+  font-weight: 800;
+  margin-bottom: 16px;
+}
+
+.verdict p {
+  color: var(--prop-gray);
+  font-size: 15px;
+  line-height: 1.8;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.verdict .highlight {
+  color: var(--prop-white);
+  font-weight: 600;
+}
+
+/* Paths Grid */
+.paths-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.path-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  padding: 48px 36px;
+  transition: all 0.4s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.path-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, var(--card-accent, var(--prop-electric)), transparent);
+  opacity: 0;
+  transition: opacity 0.4s;
+}
+
+.path-card:hover::before { opacity: 1; }
+
+.path-card:hover {
+  background: rgba(255,255,255,0.05);
+  border-color: rgba(37, 99, 235, 0.2);
+  transform: translateY(-4px);
+}
+
+.path-card.recommended {
+  border-color: rgba(37, 99, 235, 0.3);
+  background: rgba(37, 99, 235, 0.05);
+}
+
+.path-card.recommended::before { opacity: 1; }
+
+.path-number {
+  font-family: var(--font-display);
+  font-size: 48px;
+  font-weight: 900;
+  color: rgba(255,255,255,0.06);
+  position: absolute;
+  top: 20px;
+  right: 24px;
+}
+
+.path-badge {
+  display: inline-block;
+  background: rgba(37, 99, 235, 0.15);
+  color: var(--prop-electric);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  padding: 4px 12px;
+  border-radius: 100px;
+  margin-bottom: 20px;
+}
+
+.path-card h3 {
+  font-family: var(--font-display);
+  font-size: 22px;
+  font-weight: 800;
+  margin-bottom: 8px;
+}
+
+.path-card .subtitle {
+  color: var(--prop-accent);
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.path-card p {
+  color: var(--prop-gray);
+  font-size: 14px;
+  line-height: 1.7;
+  margin-bottom: 24px;
+}
+
+.path-card ul {
+  list-style: none;
+  margin-bottom: 24px;
+}
+
+.path-card ul li {
+  color: var(--prop-gray);
+  font-size: 13px;
+  padding: 6px 0;
+  padding-left: 24px;
+  position: relative;
+  line-height: 1.5;
+}
+
+.path-card ul li::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--prop-electric);
+  font-weight: 700;
+}
+
+.pros-cons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid rgba(255,255,255,0.06);
+}
+
+.pros h4, .cons h4 {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+}
+
+.pros h4 { color: #34D399; }
+.cons h4 { color: #F87171; }
+
+.pros li::before { content: '✓'; color: #34D399 !important; }
+.cons li::before { content: '✗'; color: #F87171 !important; }
+
+.pros li, .cons li {
+  font-size: 12px !important;
+  padding: 3px 0 !important;
+}
+
+/* Architecture Section */
+.arch-visual {
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  padding: 64px 48px;
+  text-align: center;
+}
+
+.arch-diagram {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  flex-wrap: wrap;
+  margin-top: 40px;
+}
+
+.arch-node {
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--radius);
+  padding: 32px 28px;
+  min-width: 200px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.arch-node:hover {
+  border-color: rgba(37, 99, 235, 0.3);
+  transform: scale(1.03);
+}
+
+.arch-node.primary {
+  background: linear-gradient(135deg, rgba(37, 99, 235, 0.12), rgba(6, 182, 212, 0.08));
+  border-color: rgba(37, 99, 235, 0.25);
+  min-width: 280px;
+  padding: 40px 32px;
+}
+
+.arch-node .node-icon {
+  font-size: 32px;
+  margin-bottom: 12px;
+}
+
+.arch-node h4 {
+  font-family: var(--font-display);
+  font-size: 18px;
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+.arch-node .node-desc {
+  color: var(--prop-gray);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.arch-arrow {
+  font-size: 28px;
+  color: var(--prop-electric);
+  opacity: 0.5;
+}
+
+/* Palette Preview */
+.palette-section {
+  margin-top: 80px;
+}
+
+.palette-row {
+  display: flex;
+  gap: 16px;
+  margin-top: 32px;
+  justify-content: center;
+}
+
+.palette-chip {
+  text-align: center;
+}
+
+.palette-chip .chip {
+  width: 80px;
+  height: 80px;
+  border-radius: 16px;
+  border: 2px solid rgba(255,255,255,0.08);
+  margin-bottom: 8px;
+  transition: transform 0.3s;
+}
+
+.palette-chip .chip:hover { transform: scale(1.1); }
+
+.palette-chip .chip-name {
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--prop-white);
+  margin-bottom: 2px;
+}
+
+.palette-chip .chip-hex {
+  font-size: 10px;
+  font-family: monospace;
+  color: var(--prop-gray);
+}
+
+/* Next Steps */
+.next-steps {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.step-card {
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: var(--radius);
+  padding: 32px 24px;
+  text-align: center;
+  transition: all 0.3s;
+}
+
+.step-card:hover { background: rgba(255,255,255,0.05); transform: translateY(-2px); }
+
+.step-num {
+  font-family: var(--font-display);
+  font-size: 36px;
+  font-weight: 900;
+  background: linear-gradient(135deg, var(--prop-electric), var(--prop-accent));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 12px;
+}
+
+.step-card h4 {
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.step-card p {
+  color: var(--prop-gray);
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 48px 32px;
+  border-top: 1px solid rgba(255,255,255,0.04);
+  color: var(--prop-gray);
+  font-size: 13px;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .audit-grid, .paths-grid { grid-template-columns: 1fr; }
+  .next-steps { grid-template-columns: 1fr 1fr; }
+  .arch-diagram { flex-direction: column; }
+  .arch-arrow { transform: rotate(90deg); }
+  .nav-links { display: none; }
+  .palette-row { flex-wrap: wrap; }
+  .pros-cons { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- Navigation -->
+<nav class="nav">
+  <div class="nav-inner">
+    <div class="nav-logo">SALES <span>VELOCITY</span></div>
+    <div class="nav-links">
+      <a href="#audit">Auditoría</a>
+      <a href="#paths">Caminos</a>
+      <a href="#architecture">Arquitectura</a>
+      <a href="#next">Siguientes Pasos</a>
+    </div>
+  </div>
+</nav>
+
+<!-- Hero -->
+<section class="hero">
+  <div class="hero-badge">📋 Documento Estratégico Interno</div>
+  <h1>De LuchoBranding<br>a <span class="gradient">Sales Velocity</span></h1>
+  <p>Análisis de marca actual, diagnóstico visual, y 3 caminos estratégicos para la evolución de la agencia. Documento interno para revisión de Lucho.</p>
+</section>
+
+<!-- Audit Section -->
+<section id="audit">
+  <div class="section-header">
+    <div class="section-tag">01 — Auditoría Visual</div>
+    <h2>Lo que tenemos hoy</h2>
+    <p>Análisis de los assets actuales de ambas marcas para identificar qué funciona, qué no, y dónde está la oportunidad.</p>
+  </div>
+
+  <div class="audit-grid">
+    <!-- LuchoBranding Card -->
+    <div class="audit-card">
+      <div class="label">Marca Personal</div>
+      <h3>@LuchoBranding</h3>
+      <p>
+        <strong>Logo:</strong> Texto @LUCHOBRANDING en tipografía condensada bold + monograma "LB" — identidad roja-naranja vibrante.<br><br>
+        <strong>Línea gráfica actual:</strong> Fondos blancos/mármol, tipografía negra bold de alto impacto, acentos amarillos para highlights. Estética editorial limpia pero sin sistema de diseño consistente.<br><br>
+        <strong>Fortalezas:</strong> La marca personal tiene reconocimiento. "Lucho" es memorable y cercano. El contenido en redes tiene tracción real.<br><br>
+        <strong>Debilidades:</strong> El rojo-naranja (#FF3300) se siente agresivo y no transmite "premium". La paleta mixta (rojo + amarillo + negro) no tiene cohesión de agencia. El nombre "LuchoBranding" limita la escala — suena a freelancer, no a sistema.
+      </p>
+      <div class="color-row">
+        <div class="swatch" style="background: #FF3300;"><span>#FF3300</span></div>
+        <div class="swatch" style="background: #FFD700;"><span>#FFD700</span></div>
+        <div class="swatch" style="background: #1A1A1A;"><span>#1A1A1A</span></div>
+        <div class="swatch" style="background: #FFFFFF; border-color: rgba(0,0,0,0.15);"><span>#FFFFFF</span></div>
+      </div>
+    </div>
+
+    <!-- Sales Velocity Card -->
+    <div class="audit-card">
+      <div class="label">Marca de Agencia</div>
+      <h3>Sales Velocity</h3>
+      <p>
+        <strong>Logo:</strong> "SALES VELOCITY" en tipografía bold dark navy con flecha ascendente en azul — transmite crecimiento, movimiento, velocidad.<br><br>
+        <strong>Línea gráfica:</strong> Navy oscuro (#1B2340) + azul eléctrico (#3B82F6). Estilo corporativo moderno. Aún no tiene sistema de diseño completo.<br><br>
+        <strong>Fortalezas:</strong> El nombre es poderoso y escalable. "Sales Velocity" comunica EXACTAMENTE lo que vendemos: velocidad en ventas. La flecha connota progreso. El navy + blue es una combinación B2B premium probada.<br><br>
+        <strong>Debilidades:</strong> No tiene aplicaciones reales aún (no hay carruseles, no hay templates). Necesita un sistema de diseño completo. La tipografía del logo necesita refinamiento.
+      </p>
+      <div class="color-row">
+        <div class="swatch" style="background: #1B2340;"><span>#1B2340</span></div>
+        <div class="swatch" style="background: #3B82F6;"><span>#3B82F6</span></div>
+        <div class="swatch" style="background: #60A5FA;"><span>#60A5FA</span></div>
+        <div class="swatch" style="background: #FFFFFF; border-color: rgba(0,0,0,0.15);"><span>#FFFFFF</span></div>
+      </div>
+    </div>
+
+    <!-- Page Registro -->
+    <div class="audit-card">
+      <div class="label">Página de Registro (VSL Funnel)</div>
+      <h3>luchobranding.com/registro1</h3>
+      <p>
+        <strong>Headline:</strong> "¿Tienes un negocio rentable pero no logras que las personas te vean y compren tus servicios acá en digital?"<br><br>
+        <strong>Copy:</strong> Fuerte y directo. Filtra bien (solo +$10K/mes). El mensaje es claro y activador.<br><br>
+        <strong>CTA:</strong> "VER AHORA" — Efectivo pero genérico.<br><br>
+        <strong>Problema:</strong> Vive bajo luchobranding.com pero ya habla del sistema (Sales Velocity System). <span style="color: var(--prop-accent);">Hay disonancia entre la URL, el logo, y el producto.</span>
+      </p>
+    </div>
+
+    <!-- Page Presentación -->
+    <div class="audit-card">
+      <div class="label">Página de Agendamiento</div>
+      <h3>luchobranding.com/presentacion</h3>
+      <p>
+        <strong>Headline:</strong> "¿Eres un dueño de negocio y quieres crecer tu marca sirviéndole al mundo?"<br><br>
+        <strong>Promesa:</strong> "Multiplicar x10 tu alcance, seguidores y ventas con solo 4-6 horas al mes" — Promesa potente y diferenciadora.<br><br>
+        <strong>CTA:</strong> "AGENDA TU CITA ACÁ"<br><br>
+        <strong>Nota:</strong> El cierre honesto ("Si determinamos que no es lo ideal para ti, seremos honestos") transmite confianza y autoridad. <span style="color: #34D399;">Esto es oro — mantener siempre.</span>
+      </p>
+    </div>
+  </div>
+
+  <!-- Verdict -->
+  <div class="verdict">
+    <h3>🎯 Diagnóstico</h3>
+    <p>
+      Hoy tienes <span class="highlight">dos marcas sin puente claro entre ellas</span>. LuchoBranding es tu marca personal con reconocimiento real, pero el nombre limita la percepción de agencia. Sales Velocity es el nombre correcto para el sistema, pero aún no tiene identidad visual completa. <span class="highlight">El funnel ya vende el sistema pero vive bajo la marca personal.</span> Esta es la oportunidad perfecta para unificar.
+    </p>
+  </div>
+</section>
+
+<!-- 3 Paths -->
+<section id="paths">
+  <div class="section-header">
+    <div class="section-tag">02 — Opciones Estratégicas</div>
+    <h2>3 Caminos</h2>
+    <p>Cada uno tiene implicaciones diferentes en marca, percepción, y operación.</p>
+  </div>
+
+  <div class="paths-grid">
+    <!-- Path 1 -->
+    <div class="path-card">
+      <div class="path-number">01</div>
+      <h3>Dual Brand</h3>
+      <div class="subtitle">"Lucho" la persona + "Sales Velocity" la agencia</div>
+      <p>Mantener LuchoBranding como marca personal (contenido, redes, cara visible) y migrar todo lo operativo/comercial a Sales Velocity. Dos identidades separadas que se complementan.</p>
+      <ul>
+        <li>@LuchoBranding sigue siendo el canal de contenido e influencia</li>
+        <li>Sales Velocity es la marca del servicio/producto</li>
+        <li>En el VSL: "Soy Lucho, fundador de Sales Velocity System"</li>
+        <li>Dos manuales de marca separados</li>
+        <li>El funnel migra a salesvelocity.com</li>
+      </ul>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>A favor</h4>
+          <ul>
+            <li>No pierdes el reconocimiento de @LuchoBranding</li>
+            <li>Separas la persona de la empresa</li>
+            <li>Si vendes la agencia, la marca va separada</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>En contra</h4>
+          <ul>
+            <li>Doble esfuerzo de branding</li>
+            <li>Puede confundir al lead: ¿soy cliente de Lucho o de SV?</li>
+            <li>Más complejo de mantener</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Path 2 (Recommended) -->
+    <div class="path-card recommended" style="--card-accent: var(--prop-electric);">
+      <div class="path-number">02</div>
+      <div class="path-badge">⭐ Recomendado</div>
+      <h3>Evolución Unificada</h3>
+      <div class="subtitle">"Sales Velocity" como marca central — Lucho como la cara</div>
+      <p>Sales Velocity se convierte en LA marca. LuchoBranding evoluciona naturalmente hacia el ecosistema SV. Lucho sigue siendo la cara, pero todo el sistema de diseño, funnels, y comunicaciones viven bajo Sales Velocity.</p>
+      <ul>
+        <li>Instagram: Puede seguir como @LuchoBranding (redirect natural) o migrar a @salesvelocity</li>
+        <li>Funnels, propuestas, decks: Todo bajo Sales Velocity</li>
+        <li>Content: "Soy Lucho de Sales Velocity" — natural</li>
+        <li>Un solo manual de marca (Sales Velocity)</li>
+        <li>Los colores del contenido de IG se adaptan al nuevo sistema</li>
+        <li>La edición de video aplica el Brand Manual de SV</li>
+      </ul>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>A favor</h4>
+          <ul>
+            <li>UN solo sistema de diseño</li>
+            <li>Percepción premium de agencia</li>
+            <li>Fácil de escalar y delegar</li>
+            <li>Consistencia total</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>En contra</h4>
+          <ul>
+            <li>Perder el @LuchoBranding en IG requiere transición</li>
+            <li>Cuesta adoptar una nueva identidad</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Path 3 -->
+    <div class="path-card">
+      <div class="path-number">03</div>
+      <h3>Rebrand Total</h3>
+      <div class="subtitle">Adiós LuchoBranding — solo Sales Velocity</div>
+      <p>Eliminar todo rastro de LuchoBranding. Migrar la cuenta de Instagram, el dominio, y todo hacia Sales Velocity. Corte limpio.</p>
+      <ul>
+        <li>@salesvelocity en todas las plataformas</li>
+        <li>salesvelocity.com como único dominio</li>
+        <li>Lucho aparece como "CEO de Sales Velocity" en bio</li>
+        <li>Identidad 100% corporativa-agencia</li>
+        <li>Todo el contenido antiguo se pierde o migra</li>
+      </ul>
+      <div class="pros-cons">
+        <div class="pros">
+          <h4>A favor</h4>
+          <ul>
+            <li>Limpio, sin confusión</li>
+            <li>Máxima percepción de escala</li>
+            <li>Ideal a largo plazo (3-5 años)</li>
+          </ul>
+        </div>
+        <div class="cons">
+          <h4>En contra</h4>
+          <ul>
+            <li>Pierdes toda la audiencia de @LuchoBranding</li>
+            <li>La gente compra a personas, no agencias</li>
+            <li>Arriesgado sin masa crítica en SV aún</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Architecture (Path 2 expanded) -->
+<section id="architecture">
+  <div class="section-header">
+    <div class="section-tag">03 — Arquitectura Propuesta (Camino 2)</div>
+    <h2>Así se vería la evolución</h2>
+    <p>La marca personal alimenta el sistema de la agencia. Una sola identidad visual, pero dos roles claros.</p>
+  </div>
+
+  <div class="arch-visual">
+    <div class="arch-diagram">
+      <div class="arch-node">
+        <div class="node-icon">👤</div>
+        <h4>@LuchoBranding</h4>
+        <div class="node-desc">
+          Canal de contenido<br>
+          Cara visible • Autoridad<br>
+          Reels, Stories, Live<br>
+          <em style="color: var(--prop-accent);">Genera atención</em>
+        </div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node primary">
+        <div class="node-icon">⚡</div>
+        <h4>Sales Velocity System</h4>
+        <div class="node-desc">
+          Marca central<br>
+          VSL • Funnels • GHL • Propuestas<br>
+          Brand Manual • Design System<br>
+          <em style="color: var(--prop-accent);">Convierte y entrega</em>
+        </div>
+      </div>
+      <div class="arch-arrow">→</div>
+      <div class="arch-node">
+        <div class="node-icon">🏆</div>
+        <h4>Resultados del Cliente</h4>
+        <div class="node-desc">
+          Case studies<br>
+          Testimonios • Números<br>
+          Alimentan el contenido de Lucho<br>
+          <em style="color: #34D399;">Ciclo virtuoso</em>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Palette Preview -->
+  <div class="palette-section">
+    <div class="section-header">
+      <div class="section-tag">Paleta Sugerida — Sales Velocity</div>
+      <h2>Identidad Visual Propuesta</h2>
+      <p>Navy profundo como base de autoridad. Azul eléctrico como energía. Cyan como acento de innovación. Gold como señal de resultados.</p>
+    </div>
+
+    <div class="palette-row">
+      <div class="palette-chip">
+        <div class="chip" style="background: #0A0E1A;"></div>
+        <div class="chip-name">Void</div>
+        <div class="chip-hex">#0A0E1A</div>
+      </div>
+      <div class="palette-chip">
+        <div class="chip" style="background: #111827;"></div>
+        <div class="chip-name">Navy</div>
+        <div class="chip-hex">#111827</div>
+      </div>
+      <div class="palette-chip">
+        <div class="chip" style="background: #1E293B;"></div>
+        <div class="chip-name">Slate</div>
+        <div class="chip-hex">#1E293B</div>
+      </div>
+      <div class="palette-chip">
+        <div class="chip" style="background: #2563EB;"></div>
+        <div class="chip-name">Velocity Blue</div>
+        <div class="chip-hex">#2563EB</div>
+      </div>
+      <div class="palette-chip">
+        <div class="chip" style="background: #3B82F6;"></div>
+        <div class="chip-name">Electric</div>
+        <div class="chip-hex">#3B82F6</div>
+      </div>
+      <div class="palette-chip">
+        <div class="chip" style="background: #06B6D4;"></div>
+        <div class="chip-name">Acento Cyan</div>
+        <div class="chip-hex">#06B6D4</div>
+      </div>
+      <div class="palette-chip">
+        <div class="chip" style="background: #F59E0B;"></div>
+        <div class="chip-name">Revenue Gold</div>
+        <div class="chip-hex">#F59E0B</div>
+      </div>
+      <div class="palette-chip">
+        <div class="chip" style="background: #F8FAFC;"></div>
+        <div class="chip-name">White</div>
+        <div class="chip-hex">#F8FAFC</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Next Steps -->
+<section id="next">
+  <div class="section-header">
+    <div class="section-tag">04 — Plan de Ejecución</div>
+    <h2>Siguientes Pasos</h2>
+    <p>Una vez seleccionado el camino, esto es lo que construimos.</p>
+  </div>
+
+  <div class="next-steps">
+    <div class="step-card">
+      <div class="step-num">01</div>
+      <h4>Definir camino</h4>
+      <p>Elegir entre los 3 caminos y validar dirección con Lucho</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">02</div>
+      <h4>Brand Manual SV</h4>
+      <p>Crear el manual de marca completo: colores, tipografía, tono, componentes</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">03</div>
+      <h4>Design System</h4>
+      <p>Templates de carrusel, presentación, thumbnails, stories con la nueva identidad</p>
+    </div>
+    <div class="step-card">
+      <div class="step-num">04</div>
+      <h4>Migrar Funnels</h4>
+      <p>Actualizar páginas de GHL con la nueva identidad visual y dominio</p>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="footer">
+  <p>Documento interno — Sales Velocity × LuchoBranding — Marzo 2026</p>
+</footer>
+
+</body>
+</html>

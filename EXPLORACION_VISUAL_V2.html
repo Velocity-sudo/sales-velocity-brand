@@ -1,0 +1,1070 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Velocity — Dirección Visual Refinada</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,400&family=Outfit:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --void: #0A0908;
+            --carbon: #0F0E0B;
+            --espresso: #15130E;
+            --walnut: #1E1B14;
+            --stone: #2A2620;
+            --amber: #D97706;
+            --amber-light: #F59E0B;
+            --copper: #B45309;
+            --gold: #FBBF24;
+            --sand: #E8DED0;
+            --cream: #F5F0E8;
+            --warm-gray: #9C9488;
+            --muted: #6B6560;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--void);
+            color: var(--cream);
+            overflow-x: hidden;
+            -webkit-font-smoothing: antialiased
+        }
+
+        /* ===== DOT GRID PATTERN (Global Background) ===== */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background-image: radial-gradient(circle, rgba(217, 119, 6, 0.06) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        /* Subtle noise grain overlay */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            opacity: 0.025;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+        }
+
+        /* ===== SECTIONS ===== */
+        section {
+            position: relative;
+            z-index: 1;
+            padding: 100px 0
+        }
+
+        .container {
+            max-width: 1120px;
+            margin: 0 auto;
+            padding: 0 40px
+        }
+
+        /* ===== HERO ===== */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            position: relative;
+            overflow: hidden
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(217, 119, 6, 0.08) 0%, rgba(217, 119, 6, 0.02) 40%, transparent 70%);
+            transform: translate(-50%, -50%);
+            pointer-events: none;
+        }
+
+        /* Ambient glow orbs */
+        .glow-orb {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(100px);
+            pointer-events: none;
+            animation: float 12s ease-in-out infinite
+        }
+
+        .glow-orb.orb1 {
+            width: 400px;
+            height: 400px;
+            background: rgba(217, 119, 6, 0.06);
+            top: 20%;
+            right: 10%;
+            animation-delay: 0s
+        }
+
+        .glow-orb.orb2 {
+            width: 300px;
+            height: 300px;
+            background: rgba(180, 83, 9, 0.04);
+            bottom: 10%;
+            left: 5%;
+            animation-delay: 4s
+        }
+
+        .glow-orb.orb3 {
+            width: 200px;
+            height: 200px;
+            background: rgba(251, 191, 36, 0.03);
+            top: 60%;
+            right: 30%;
+            animation-delay: 8s
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0) scale(1)
+            }
+
+            50% {
+                transform: translateY(-30px) scale(1.05)
+            }
+        }
+
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border-radius: 100px;
+            border: 1px solid rgba(217, 119, 6, 0.15);
+            background: rgba(217, 119, 6, 0.05);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 32px;
+            backdrop-filter: blur(8px)
+        }
+
+        .hero-badge .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--amber);
+            animation: pulse 2s ease-in-out infinite
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: 0.5;
+                transform: scale(0.8)
+            }
+        }
+
+        .hero h1 {
+            font-family: 'DM Sans';
+            font-size: clamp(48px, 7vw, 88px);
+            font-weight: 800;
+            line-height: 1;
+            letter-spacing: -3px;
+            margin-bottom: 24px
+        }
+
+        .hero h1 span {
+            background: linear-gradient(135deg, var(--amber) 0%, var(--gold) 50%, var(--amber-light) 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: none;
+            position: relative;
+        }
+
+        .hero p {
+            font-size: 18px;
+            font-weight: 300;
+            line-height: 1.7;
+            color: var(--warm-gray);
+            max-width: 520px;
+            margin-bottom: 48px
+        }
+
+        /* Glowing CTA */
+        .cta-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: linear-gradient(135deg, var(--amber), var(--copper));
+            color: var(--void);
+            font-family: 'DM Sans';
+            font-size: 14px;
+            font-weight: 700;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            letter-spacing: 0.3px;
+            position: relative;
+            transition: all 0.4s;
+            text-decoration: none;
+        }
+
+        .cta-primary::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: 14px;
+            background: linear-gradient(135deg, var(--amber), var(--gold));
+            filter: blur(20px);
+            opacity: 0;
+            transition: opacity 0.4s;
+            z-index: -1;
+        }
+
+        .cta-primary:hover {
+            transform: translateY(-2px)
+        }
+
+        .cta-primary:hover::before {
+            opacity: 0.4
+        }
+
+        .cta-ghost {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 16px 36px;
+            background: transparent;
+            border: 1px solid rgba(217, 119, 6, 0.2);
+            color: var(--cream);
+            font-family: 'DM Sans';
+            font-size: 14px;
+            font-weight: 600;
+            border-radius: 12px;
+            cursor: pointer;
+            letter-spacing: 0.3px;
+            transition: all 0.4s;
+            text-decoration: none;
+            backdrop-filter: blur(4px);
+        }
+
+        .cta-ghost:hover {
+            border-color: var(--amber);
+            background: rgba(217, 119, 6, 0.05)
+        }
+
+        .cta-row {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap
+        }
+
+        /* ===== SECTION HEADERS ===== */
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 16px
+        }
+
+        .section-title {
+            font-size: clamp(32px, 4vw, 48px);
+            font-weight: 800;
+            letter-spacing: -1.5px;
+            line-height: 1.1;
+            margin-bottom: 16px
+        }
+
+        .section-desc {
+            font-size: 16px;
+            line-height: 1.7;
+            color: var(--warm-gray);
+            max-width: 560px;
+            margin-bottom: 56px
+        }
+
+        /* ===== DIVIDER ===== */
+        .divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(217, 119, 6, 0.15), transparent);
+            margin: 0 auto;
+            max-width: 800px
+        }
+
+        /* ===== PALETTE SECTION ===== */
+        .palette-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+            gap: 16px;
+            margin-bottom: 64px
+        }
+
+        .swatch {
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            transition: all 0.4s;
+            cursor: pointer;
+            position: relative
+        }
+
+        .swatch:hover {
+            transform: translateY(-4px);
+            border-color: rgba(217, 119, 6, 0.15)
+        }
+
+        .swatch:hover::after {
+            content: '';
+            position: absolute;
+            inset: -1px;
+            border-radius: 16px;
+            background: linear-gradient(135deg, rgba(217, 119, 6, 0.1), transparent);
+            pointer-events: none;
+        }
+
+        .swatch .color-box {
+            height: 100px;
+            position: relative
+        }
+
+        .swatch .color-info {
+            padding: 14px 16px;
+            background: rgba(10, 9, 8, 0.8);
+            backdrop-filter: blur(8px)
+        }
+
+        .swatch .color-name {
+            font-size: 12px;
+            font-weight: 600;
+            margin-bottom: 2px
+        }
+
+        .swatch .color-hex {
+            font-size: 10px;
+            font-family: monospace;
+            color: var(--muted)
+        }
+
+        /* ===== TYPOGRAPHY SECTION ===== */
+        .type-showcase {
+            margin-bottom: 64px
+        }
+
+        .type-item {
+            display: grid;
+            grid-template-columns: 160px 1fr;
+            align-items: baseline;
+            padding: 28px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+        }
+
+        .type-label {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted)
+        }
+
+        .type-sample {
+            position: relative
+        }
+
+        /* ===== GLASS CARDS ===== */
+        .glass-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 64px
+        }
+
+        .glass-card {
+            border-radius: 20px;
+            padding: 48px 36px;
+            min-height: 360px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.5s;
+            border: 1px solid rgba(255, 255, 255, 0.04);
+            background: rgba(15, 14, 11, 0.6);
+            backdrop-filter: blur(20px);
+        }
+
+        .glass-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at top right, rgba(217, 119, 6, 0.04) 0%, transparent 60%);
+            pointer-events: none;
+            transition: all 0.5s;
+        }
+
+        .glass-card:hover {
+            transform: translateY(-6px);
+            border-color: rgba(217, 119, 6, 0.12)
+        }
+
+        .glass-card:hover::before {
+            background: radial-gradient(ellipse at top right, rgba(217, 119, 6, 0.08) 0%, transparent 60%)
+        }
+
+        .glass-card.highlight {
+            background: linear-gradient(135deg, var(--amber), var(--copper));
+            border: none
+        }
+
+        .glass-card.highlight::before {
+            background: none
+        }
+
+        .glass-card.highlight .gc-tag,
+        .glass-card.highlight .gc-desc {
+            color: rgba(10, 9, 8, 0.7)
+        }
+
+        .glass-card.highlight .gc-title {
+            color: var(--void)
+        }
+
+        .gc-tag {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 14px
+        }
+
+        .gc-title {
+            font-size: 26px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.15;
+            margin-bottom: 14px
+        }
+
+        .gc-desc {
+            font-size: 13px;
+            line-height: 1.65;
+            color: var(--muted)
+        }
+
+        /* ===== LOGO SECTION ===== */
+        .logo-showcase {
+            text-align: center;
+            padding: 100px 40px;
+            border-radius: 24px;
+            margin-bottom: 64px;
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            background: linear-gradient(180deg, var(--carbon), var(--espresso));
+        }
+
+        .logo-showcase::before {
+            content: '';
+            position: absolute;
+            top: -100px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 500px;
+            height: 300px;
+            background: radial-gradient(ellipse, rgba(217, 119, 6, 0.06) 0%, transparent 70%);
+            pointer-events: none;
+        }
+
+        /* Dot pattern inside logo area */
+        .logo-showcase::after {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            opacity: 0.4;
+            background-image: radial-gradient(circle, rgba(217, 119, 6, 0.04) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .logo-main {
+            font-family: 'DM Sans';
+            font-size: clamp(56px, 8vw, 96px);
+            font-weight: 900;
+            letter-spacing: -4px;
+            line-height: 1;
+            margin-bottom: 12px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-main span {
+            background: linear-gradient(135deg, var(--amber), var(--gold), var(--amber-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-sub {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 5px;
+            text-transform: uppercase;
+            color: var(--muted);
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Logo variations */
+        .logo-variants {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 24px;
+            margin-bottom: 64px;
+        }
+
+        .logo-variant {
+            text-align: center;
+            padding: 56px 24px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s;
+        }
+
+        .logo-variant:hover {
+            border-color: rgba(217, 119, 6, 0.1)
+        }
+
+        .logo-variant.on-dark {
+            background: var(--carbon)
+        }
+
+        .logo-variant.on-light {
+            background: var(--sand);
+            color: var(--void)
+        }
+
+        .logo-variant.on-amber {
+            background: linear-gradient(135deg, var(--amber), var(--copper));
+            color: var(--void)
+        }
+
+        .logo-variant .lv-title {
+            font-family: 'DM Sans';
+            font-size: 32px;
+            font-weight: 900;
+            letter-spacing: -1.5px;
+            margin-bottom: 6px
+        }
+
+        .logo-variant .lv-title span {
+            background: linear-gradient(135deg, var(--amber), var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-variant.on-light .lv-title span {
+            background: linear-gradient(135deg, var(--copper), var(--amber));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-variant.on-amber .lv-title span {
+            -webkit-text-fill-color: var(--void);
+            color: var(--void)
+        }
+
+        .logo-variant .lv-sub {
+            font-size: 9px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: 0.4;
+            font-weight: 600
+        }
+
+        .logo-variant .lv-label {
+            position: absolute;
+            bottom: 16px;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 9px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.3;
+            font-weight: 600;
+        }
+
+        /* ===== EFFECTS SHOWCASE ===== */
+        .effects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 64px
+        }
+
+        .effect-card {
+            padding: 36px 28px;
+            border-radius: 16px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.03);
+            background: rgba(15, 14, 11, 0.4);
+            backdrop-filter: blur(12px);
+            transition: all 0.4s;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .effect-card:hover {
+            border-color: rgba(217, 119, 6, 0.12);
+            transform: translateY(-3px)
+        }
+
+        .effect-icon {
+            font-size: 32px;
+            margin-bottom: 16px
+        }
+
+        .effect-name {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 8px
+        }
+
+        .effect-desc {
+            font-size: 12px;
+            color: var(--muted);
+            line-height: 1.5
+        }
+
+        /* Glow demo card */
+        .effect-card.glow-demo::before {
+            content: '';
+            position: absolute;
+            top: -20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 60px;
+            background: rgba(217, 119, 6, 0.12);
+            filter: blur(40px);
+            border-radius: 50%;
+        }
+
+        /* Dot pattern demo */
+        .effect-card.dot-demo {
+            background-image: radial-gradient(circle, rgba(217, 119, 6, 0.08) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+
+        /* Glass demo */
+        .effect-card.glass-demo {
+            background: rgba(30, 27, 20, 0.3);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(217, 119, 6, 0.08);
+        }
+
+        /* ===== FULL-WIDTH BANNER ===== */
+        .banner {
+            border-radius: 24px;
+            padding: 80px 60px;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 64px;
+            background: linear-gradient(135deg, var(--walnut), var(--espresso));
+            border: 1px solid rgba(217, 119, 6, 0.06);
+        }
+
+        .banner::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image: radial-gradient(circle, rgba(217, 119, 6, 0.05) 1px, transparent 1px);
+            background-size: 28px 28px;
+            pointer-events: none;
+        }
+
+        .banner::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 500px;
+            height: 500px;
+            background: radial-gradient(circle, rgba(217, 119, 6, 0.08), transparent 60%);
+            filter: blur(60px);
+            pointer-events: none;
+        }
+
+        .banner h2 {
+            font-size: clamp(28px, 4vw, 44px);
+            font-weight: 800;
+            letter-spacing: -1px;
+            line-height: 1.1;
+            margin-bottom: 16px;
+            position: relative;
+            z-index: 1
+        }
+
+        .banner p {
+            font-size: 16px;
+            color: var(--warm-gray);
+            line-height: 1.7;
+            max-width: 500px;
+            margin-bottom: 32px;
+            position: relative;
+            z-index: 1
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            text-align: center;
+            padding: 60px 40px;
+            position: relative;
+            z-index: 1
+        }
+
+        footer .f-logo {
+            font-family: 'DM Sans';
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            margin-bottom: 8px
+        }
+
+        footer .f-logo span {
+            color: var(--amber)
+        }
+
+        footer .f-copy {
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 1px
+        }
+
+        @media(max-width:768px) {
+            .container {
+                padding: 0 20px
+            }
+
+            section {
+                padding: 60px 0
+            }
+
+            .glass-grid,
+            .logo-variants {
+                grid-template-columns: 1fr
+            }
+
+            .effects-grid {
+                grid-template-columns: 1fr
+            }
+
+            .type-item {
+                grid-template-columns: 1fr;
+                gap: 8px
+            }
+
+            .banner {
+                padding: 48px 28px
+            }
+
+            .hero h1 {
+                letter-spacing: -1.5px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Floating glow orbs -->
+    <div class="glow-orb orb1"></div>
+    <div class="glow-orb orb2"></div>
+    <div class="glow-orb orb3"></div>
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-badge"><span class="dot"></span> Dirección Visual Definitiva</div>
+            <h1>SALES<br><span>VELOCITY</span></h1>
+            <p>La identidad visual que combina la calidez del lujo artesanal con la precisión de la ingeniería moderna.
+                Cada detalle diseñado para transmitir exclusividad y confianza.</p>
+            <div class="cta-row">
+                <a class="cta-primary" href="#">Reservar sesión estratégica →</a>
+                <a class="cta-ghost" href="#">Ver casos de éxito</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <!-- ===== DESIGN SYSTEM ===== -->
+    <section>
+        <div class="container">
+            <div class="section-label">Sistema de Diseño</div>
+            <div class="section-title">Warm Architectural<br>Evolved</div>
+            <div class="section-desc">La base cálida y sofisticada, ahora potenciada con glows ambientales, texturas de
+                puntos, glassmorphism y micro-animaciones que le dan profundidad y modernidad.</div>
+
+            <!-- EFFECTS SHOWCASE -->
+            <div class="mini-section" style="margin-bottom:48px">
+                <div
+                    style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:24px">
+                    Capas de Premium</div>
+                <div class="effects-grid">
+                    <div class="effect-card glow-demo">
+                        <div class="effect-icon">✦</div>
+                        <div class="effect-name">Ambient Glow</div>
+                        <div class="effect-desc">Resplandores cálidos amber detrás de elementos clave. Crean profundidad
+                            y sensación de lujo sin ser agresivos.</div>
+                    </div>
+                    <div class="effect-card dot-demo">
+                        <div class="effect-icon">⬡</div>
+                        <div class="effect-name">Dot Grid Pattern</div>
+                        <div class="effect-desc">Patrón de puntos sutiles en amber que recorre todo el fondo. Da textura
+                            y estructura sin distraer.</div>
+                    </div>
+                    <div class="effect-card glass-demo">
+                        <div class="effect-icon">◇</div>
+                        <div class="effect-name">Warm Glassmorphism</div>
+                        <div class="effect-desc">Cards translúcidos con blur y bordes luminosos. Profundidad de capas
+                            que se siente premium y moderno.</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider" style="margin-bottom:64px"></div>
+
+            <!-- PALETTE -->
+            <div
+                style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:24px">
+                Paleta de Color</div>
+            <div class="palette-grid">
+                <div class="swatch">
+                    <div class="color-box" style="background:var(--void)"></div>
+                    <div class="color-info">
+                        <div class="color-name">Void</div>
+                        <div class="color-hex">#0A0908</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="color-box" style="background:var(--carbon)"></div>
+                    <div class="color-info">
+                        <div class="color-name">Carbon</div>
+                        <div class="color-hex">#0F0E0B</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="color-box" style="background:var(--espresso)"></div>
+                    <div class="color-info">
+                        <div class="color-name">Espresso</div>
+                        <div class="color-hex">#15130E</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="color-box" style="background:var(--walnut)"></div>
+                    <div class="color-info">
+                        <div class="color-name">Walnut</div>
+                        <div class="color-hex">#1E1B14</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="color-box" style="background:var(--stone)"></div>
+                    <div class="color-info">
+                        <div class="color-name">Stone</div>
+                        <div class="color-hex">#2A2620</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="color-box" style="background:var(--amber)"></div>
+                    <div class="color-info">
+                        <div class="color-name">Amber</div>
+                        <div class="color-hex">#D97706</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="color-box" style="background:var(--gold)"></div>
+                    <div class="color-info">
+                        <div class="color-name">Gold</div>
+                        <div class="color-hex">#FBBF24</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="color-box" style="background:var(--copper)"></div>
+                    <div class="color-info">
+                        <div class="color-name">Copper</div>
+                        <div class="color-hex">#B45309</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="palette-grid" style="margin-bottom:64px">
+                <div class="swatch">
+                    <div class="color-box" style="background:var(--sand)"></div>
+                    <div class="color-info" style="color:var(--void)">
+                        <div class="color-name" style="color:var(--void)">Sand</div>
+                        <div class="color-hex">#E8DED0</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="color-box" style="background:var(--cream)"></div>
+                    <div class="color-info" style="color:var(--void)">
+                        <div class="color-name" style="color:var(--void)">Cream</div>
+                        <div class="color-hex">#F5F0E8</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="color-box" style="background:var(--warm-gray)"></div>
+                    <div class="color-info">
+                        <div class="color-name">Warm Gray</div>
+                        <div class="color-hex">#9C9488</div>
+                    </div>
+                </div>
+                <div class="swatch">
+                    <div class="color-box" style="background:var(--muted)"></div>
+                    <div class="color-info">
+                        <div class="color-name">Muted</div>
+                        <div class="color-hex">#6B6560</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divider" style="margin-bottom:64px"></div>
+
+            <!-- TYPOGRAPHY -->
+            <div
+                style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:24px">
+                Tipografía</div>
+            <div class="type-showcase">
+                <div class="type-item">
+                    <div class="type-label">Display</div>
+                    <div class="type-sample"
+                        style="font-family:'DM Sans';font-size:clamp(36px,5vw,56px);font-weight:900;letter-spacing:-2px">
+                        Sales Velocity</div>
+                </div>
+                <div class="type-item">
+                    <div class="type-label">H1</div>
+                    <div class="type-sample"
+                        style="font-family:'DM Sans';font-size:36px;font-weight:800;letter-spacing:-1px">Construimos
+                        máquinas de ingresos</div>
+                </div>
+                <div class="type-item">
+                    <div class="type-label">H2</div>
+                    <div class="type-sample"
+                        style="font-family:'DM Sans';font-size:24px;font-weight:700;letter-spacing:-0.5px">La
+                        arquitectura detrás del crecimiento</div>
+                </div>
+                <div class="type-item">
+                    <div class="type-label">Body</div>
+                    <div class="type-sample"
+                        style="font-family:'Inter';font-size:15px;font-weight:400;color:var(--warm-gray);line-height:1.75">
+                        Estrategia, implementación y aceleración de ingresos para negocios premium que buscan dominar su
+                        mercado digital con sistemas predecibles.</div>
+                </div>
+                <div class="type-item">
+                    <div class="type-label">Caption</div>
+                    <div class="type-sample"
+                        style="font-family:'DM Sans';font-size:11px;font-weight:700;letter-spacing:3px;text-transform:uppercase;color:var(--muted)">
+                        Diseñado para líderes de industria</div>
+                </div>
+                <div class="type-item">
+                    <div class="type-label">Accent</div>
+                    <div class="type-sample"
+                        style="font-family:'DM Sans';font-size:14px;font-weight:600;color:var(--amber)">Revenue
+                        Architecture™</div>
+                </div>
+            </div>
+
+            <div class="divider" style="margin-bottom:64px"></div>
+
+            <!-- LOGO -->
+            <div
+                style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:24px">
+                Logo</div>
+            <div class="logo-showcase">
+                <div class="logo-main">SALES <span>VELOCITY</span></div>
+                <div class="logo-sub">Revenue Architecture</div>
+            </div>
+            <div class="logo-variants">
+                <div class="logo-variant on-dark">
+                    <div class="lv-title">SV<span>.</span></div>
+                    <div class="lv-sub">Sales Velocity</div>
+                    <div class="lv-label">Sobre oscuro</div>
+                </div>
+                <div class="logo-variant on-light">
+                    <div class="lv-title">SV<span>.</span></div>
+                    <div class="lv-sub" style="color:var(--muted)">Sales Velocity</div>
+                    <div class="lv-label" style="color:var(--muted)">Sobre claro</div>
+                </div>
+                <div class="logo-variant on-amber">
+                    <div class="lv-title">SV<span>.</span></div>
+                    <div class="lv-sub" style="color:rgba(10,9,8,0.5)">Sales Velocity</div>
+                    <div class="lv-label" style="color:rgba(10,9,8,0.4)">Sobre amber</div>
+                </div>
+            </div>
+
+            <div class="divider" style="margin-bottom:64px"></div>
+
+            <!-- APPLICATION MOCKUPS -->
+            <div
+                style="font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--muted);margin-bottom:24px">
+                Aplicaciones</div>
+            <div class="glass-grid">
+                <div class="glass-card">
+                    <div class="gc-tag">Caso de Éxito</div>
+                    <div class="gc-title">De $8K a $47K en 90 días</div>
+                    <div class="gc-desc">Cómo Jorge multiplicó x5 sus ventas con el Sales Velocity System implementado
+                        en su negocio de impuestos.</div>
+                    <a class="cta-primary" style="margin-top:24px;display:inline-flex;width:fit-content" href="#">Ver
+                        caso completo →</a>
+                </div>
+                <div class="glass-card highlight">
+                    <div class="gc-tag">Presentación Exclusiva</div>
+                    <div class="gc-title">El sistema de $100M que nadie te enseña</div>
+                    <div class="gc-desc">Accede a la presentación privada del Sales Velocity System y descubre cómo
+                        escalar tu negocio.</div>
+                </div>
+            </div>
+
+            <!-- FULL WIDTH BANNER -->
+            <div class="banner">
+                <h2>Tu negocio merece<br>un sistema de <span style="color:var(--amber)">élite</span></h2>
+                <p>Reserva tu sesión estratégica con nuestro equipo. Analizamos tu negocio, identificamos las palancas
+                    de crecimiento, y diseñamos la arquitectura para escalar.</p>
+                <a class="cta-primary" href="#" style="position:relative;z-index:1">Agenda tu sesión →</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="divider"></div>
+
+    <footer>
+        <div class="f-logo">SV<span>.</span></div>
+        <div class="f-copy">SALES VELOCITY — REVENUE ARCHITECTURE — V3.0 EVOLVED</div>
+    </footer>
+
+</body>
+
+</html>

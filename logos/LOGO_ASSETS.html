@@ -1,0 +1,960 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Logo Assets — Sales Velocity</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=DM+Sans:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        :root {
+            --void: #0A0908;
+            --carbon: #0F0E0B;
+            --espresso: #15130E;
+            --walnut: #1E1B14;
+            --stone: #2A2620;
+            --amber: #D97706;
+            --amber-light: #F59E0B;
+            --copper: #B45309;
+            --gold: #FBBF24;
+            --sand: #E8DED0;
+            --cream: #F5F0E8;
+            --warm-gray: #9C9488;
+            --muted: #6B6560;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--void);
+            color: var(--cream);
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            pointer-events: none;
+            background-image: radial-gradient(circle, rgba(217, 119, 6, .04) 1px, transparent 1px);
+            background-size: 32px 32px;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 0 40px;
+            position: relative;
+            z-index: 1
+        }
+
+        /* HEADER */
+        .page-header {
+            padding: 60px 0 40px;
+            border-bottom: 1px solid rgba(255, 255, 255, .04);
+        }
+
+        .badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 20px;
+            border-radius: 100px;
+            border: 1px solid rgba(217, 119, 6, .15);
+            background: rgba(217, 119, 6, .05);
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 24px;
+            backdrop-filter: blur(8px);
+        }
+
+        .badge .dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--amber);
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+                transform: scale(1)
+            }
+
+            50% {
+                opacity: .5;
+                transform: scale(.8)
+            }
+        }
+
+        .page-header h1 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 800;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 16px;
+        }
+
+        .page-header h1 span {
+            background: linear-gradient(135deg, var(--amber), var(--gold), var(--amber-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header p {
+            font-size: 16px;
+            color: var(--warm-gray);
+            max-width: 560px;
+        }
+
+        /* SECTION */
+        .section {
+            padding: 60px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, .04);
+        }
+
+        .section-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            color: var(--amber);
+            margin-bottom: 12px;
+        }
+
+        .section-title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: clamp(24px, 3vw, 36px);
+            font-weight: 800;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+        }
+
+        .section-desc {
+            font-size: 14px;
+            color: var(--warm-gray);
+            max-width: 560px;
+            margin-bottom: 40px;
+        }
+
+        /* LOGO GRID */
+        .logo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 24px;
+        }
+
+        .logo-card {
+            border-radius: 20px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, .04);
+            background: rgba(15, 14, 11, .6);
+            backdrop-filter: blur(20px);
+            transition: all .4s;
+        }
+
+        .logo-card:hover {
+            border-color: rgba(217, 119, 6, .12);
+            transform: translateY(-4px);
+        }
+
+        .logo-preview {
+            height: 220px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .logo-preview.dark-bg {
+            background: var(--void);
+            background-image: radial-gradient(circle, rgba(217, 119, 6, .03) 1px, transparent 1px);
+            background-size: 24px 24px;
+        }
+
+        .logo-preview.light-bg {
+            background: var(--cream);
+        }
+
+        .logo-preview.amber-bg {
+            background: linear-gradient(135deg, var(--amber), var(--copper));
+        }
+
+        .logo-preview.transparent-bg {
+            background-image:
+                linear-gradient(45deg, #1a1a1a 25%, transparent 25%),
+                linear-gradient(-45deg, #1a1a1a 25%, transparent 25%),
+                linear-gradient(45deg, transparent 75%, #1a1a1a 75%),
+                linear-gradient(-45deg, transparent 75%, #1a1a1a 75%);
+            background-size: 20px 20px;
+            background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+            background-color: #111;
+        }
+
+        /* LOGO RENDERING IN PREVIEW */
+        .logo-render {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-render.full .main-text {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 900;
+            font-size: 48px;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+
+        .logo-render.full .sub-text {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 10px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+
+        .logo-render.inline .main-text {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 900;
+            font-size: 42px;
+            letter-spacing: -2px;
+            line-height: 1;
+        }
+
+        .logo-render.inline .sub-text {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 9px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 8px;
+        }
+
+        .logo-render.short .main-text {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 900;
+            font-size: 80px;
+            letter-spacing: -3px;
+            line-height: 1;
+        }
+
+        .logo-render.short .sub-text {
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 600;
+            font-size: 9px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            margin-top: 6px;
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, var(--amber), var(--gold), var(--amber-light));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .gradient-text-dark {
+            background: linear-gradient(135deg, var(--copper), var(--amber));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .logo-card-info {
+            padding: 20px 24px;
+            border-top: 1px solid rgba(255, 255, 255, .04);
+        }
+
+        .logo-card-info h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+
+        .logo-card-info .use-case {
+            font-size: 12px;
+            color: var(--muted);
+            margin-bottom: 16px;
+        }
+
+        .download-row {
+            display: flex;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .dl-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 8px 16px;
+            border-radius: 8px;
+            border: 1px solid rgba(217, 119, 6, .15);
+            background: rgba(217, 119, 6, .05);
+            color: var(--amber);
+            font-family: 'Inter', sans-serif;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: .5px;
+            cursor: pointer;
+            transition: all .3s;
+            text-decoration: none;
+        }
+
+        .dl-btn:hover {
+            background: rgba(217, 119, 6, .12);
+            border-color: rgba(217, 119, 6, .3);
+            transform: translateY(-1px);
+        }
+
+        .dl-btn.primary {
+            background: linear-gradient(135deg, var(--amber), var(--copper));
+            color: var(--void);
+            border: none;
+        }
+
+        .dl-btn.primary:hover {
+            filter: brightness(1.1);
+        }
+
+        /* USAGE GUIDE */
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 20px;
+            margin-top: 32px;
+        }
+
+        .usage-card {
+            padding: 32px 28px;
+            border-radius: 16px;
+            border: 1px solid rgba(255, 255, 255, .04);
+            background: rgba(15, 14, 11, .6);
+            backdrop-filter: blur(12px);
+        }
+
+        .usage-card .u-icon {
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
+
+        .usage-card h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 15px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .usage-card p {
+            font-size: 13px;
+            color: var(--warm-gray);
+            line-height: 1.6;
+        }
+
+        /* TOAST */
+        .toast {
+            position: fixed;
+            bottom: 32px;
+            left: 50%;
+            transform: translateX(-50%) translateY(100px);
+            padding: 14px 28px;
+            border-radius: 12px;
+            background: rgba(217, 119, 6, .95);
+            color: var(--void);
+            font-family: 'DM Sans', sans-serif;
+            font-size: 13px;
+            font-weight: 700;
+            backdrop-filter: blur(20px);
+            transition: transform .4s cubic-bezier(.16, 1, .3, 1);
+            z-index: 999;
+            pointer-events: none;
+        }
+
+        .toast.show {
+            transform: translateX(-50%) translateY(0);
+        }
+
+        /* FOOTER */
+        .footer {
+            text-align: center;
+            padding: 40px;
+            font-size: 11px;
+            color: var(--muted);
+            letter-spacing: 1px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 20px
+            }
+
+            .logo-grid {
+                grid-template-columns: 1fr
+            }
+
+            .logo-preview {
+                height: 180px
+            }
+
+            .logo-render.full .main-text {
+                font-size: 36px
+            }
+
+            .logo-render.inline .main-text {
+                font-size: 28px
+            }
+
+            .logo-render.short .main-text {
+                font-size: 60px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="page-header">
+        <div class="container">
+            <div class="badge"><span class="dot"></span> Brand Assets Kit</div>
+            <h1>Logo <span>Assets</span></h1>
+            <p>Todos los archivos del logo de Sales Velocity listos para descargar en SVG y PNG. Usa la variante
+                correcta según el contexto.</p>
+        </div>
+    </header>
+
+    <!-- FULL LOGO -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label">01 · Logo Completo</div>
+            <div class="section-title">SALES VELOCITY</div>
+            <div class="section-desc">La versión principal del logotipo. Usar cuando haya espacio suficiente para
+                legibilidad completa (headers, presentaciones, páginas web).</div>
+
+            <div class="logo-grid">
+                <!-- Full - Dark -->
+                <div class="logo-card">
+                    <div class="logo-preview dark-bg" id="full-dark">
+                        <div class="logo-render full">
+                            <div class="main-text">
+                                <span style="color:#F5F0E8">SALES </span><span class="gradient-text">VELOCITY</span>
+                            </div>
+                            <div class="sub-text" style="color:#6B6560">REVENUE ARCHITECTURE</div>
+                        </div>
+                    </div>
+                    <div class="logo-card-info">
+                        <h3>Sobre Fondo Oscuro</h3>
+                        <div class="use-case">Uso principal — web, GHL, emails, decks</div>
+                        <div class="download-row">
+                            <a href="SV_full_dark.svg" download class="dl-btn primary">↓ SVG</a>
+                            <button class="dl-btn" onclick="exportPNG('full-dark', 'SV_full_dark', 800, 300)">↓
+                                PNG</button>
+                            <button class="dl-btn" onclick="exportPNG('full-dark', 'SV_full_dark_2x', 1600, 600)">↓ PNG
+                                @2x</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Full - Light -->
+                <div class="logo-card">
+                    <div class="logo-preview light-bg" id="full-light">
+                        <div class="logo-render full">
+                            <div class="main-text">
+                                <span style="color:#0A0908">SALES </span><span
+                                    class="gradient-text-dark">VELOCITY</span>
+                            </div>
+                            <div class="sub-text" style="color:#9C9488">REVENUE ARCHITECTURE</div>
+                        </div>
+                    </div>
+                    <div class="logo-card-info">
+                        <h3>Sobre Fondo Claro</h3>
+                        <div class="use-case">Documentos impresos, slides light mode</div>
+                        <div class="download-row">
+                            <a href="SV_full_light.svg" download class="dl-btn primary">↓ SVG</a>
+                            <button class="dl-btn" onclick="exportPNG('full-light', 'SV_full_light', 800, 300)">↓
+                                PNG</button>
+                            <button class="dl-btn" onclick="exportPNG('full-light', 'SV_full_light_2x', 1600, 600)">↓
+                                PNG @2x</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Full - Transparent -->
+                <div class="logo-card">
+                    <div class="logo-preview transparent-bg" id="full-transparent">
+                        <div class="logo-render full">
+                            <div class="main-text">
+                                <span style="color:#F5F0E8">SALES </span><span class="gradient-text">VELOCITY</span>
+                            </div>
+                            <div class="sub-text" style="color:#6B6560">REVENUE ARCHITECTURE</div>
+                        </div>
+                    </div>
+                    <div class="logo-card-info">
+                        <h3>Fondo Transparente</h3>
+                        <div class="use-case">Superponer en fotos, videos, mockups</div>
+                        <div class="download-row">
+                            <a href="SV_full_transparent.svg" download class="dl-btn primary">↓ SVG</a>
+                            <button class="dl-btn"
+                                onclick="exportPNGTransparent('full-transparent', 'SV_full_transparent', 800, 300)">↓
+                                PNG</button>
+                            <button class="dl-btn"
+                                onclick="exportPNGTransparent('full-transparent', 'SV_full_transparent_2x', 1600, 600)">↓
+                                PNG @2x</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- INLINE LOGO -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label">02 · Logo Horizontal</div>
+            <div class="section-title">SALESVELOCITY</div>
+            <div class="section-desc">La versión horizontal continua — todo en una sola línea, sin separación. Ideal
+                para headers estrechos, barras de navegación, firmas de email y cualquier espacio horizontal.</div>
+
+            <div class="logo-grid">
+                <!-- Inline - Dark -->
+                <div class="logo-card">
+                    <div class="logo-preview dark-bg" id="inline-dark">
+                        <div class="logo-render inline">
+                            <div class="main-text">
+                                <span style="color:#F5F0E8">SALES</span><span class="gradient-text">VELOCITY</span>
+                            </div>
+                            <div class="sub-text" style="color:#6B6560">REVENUE ARCHITECTURE</div>
+                        </div>
+                    </div>
+                    <div class="logo-card-info">
+                        <h3>Sobre Fondo Oscuro</h3>
+                        <div class="use-case">Navbar, headers web, firma de email</div>
+                        <div class="download-row">
+                            <a href="SV_inline_dark.svg" download class="dl-btn primary">↓ SVG</a>
+                            <button class="dl-btn" onclick="exportPNG('inline-dark', 'SV_inline_dark', 900, 200)">↓
+                                PNG</button>
+                            <button class="dl-btn" onclick="exportPNG('inline-dark', 'SV_inline_dark_2x', 1800, 400)">↓
+                                PNG
+                                @2x</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inline - Light -->
+                <div class="logo-card">
+                    <div class="logo-preview light-bg" id="inline-light">
+                        <div class="logo-render inline">
+                            <div class="main-text">
+                                <span style="color:#0A0908">SALES</span><span class="gradient-text-dark">VELOCITY</span>
+                            </div>
+                            <div class="sub-text" style="color:#9C9488">REVENUE ARCHITECTURE</div>
+                        </div>
+                    </div>
+                    <div class="logo-card-info">
+                        <h3>Sobre Fondo Claro</h3>
+                        <div class="use-case">Documentos, contratos, propuestas</div>
+                        <div class="download-row">
+                            <a href="SV_inline_light.svg" download class="dl-btn primary">↓ SVG</a>
+                            <button class="dl-btn" onclick="exportPNG('inline-light', 'SV_inline_light', 900, 200)">↓
+                                PNG</button>
+                            <button class="dl-btn"
+                                onclick="exportPNG('inline-light', 'SV_inline_light_2x', 1800, 400)">↓
+                                PNG @2x</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Inline - Transparent -->
+                <div class="logo-card">
+                    <div class="logo-preview transparent-bg" id="inline-transparent">
+                        <div class="logo-render inline">
+                            <div class="main-text">
+                                <span style="color:#F5F0E8">SALES</span><span class="gradient-text">VELOCITY</span>
+                            </div>
+                            <div class="sub-text" style="color:#6B6560">REVENUE ARCHITECTURE</div>
+                        </div>
+                    </div>
+                    <div class="logo-card-info">
+                        <h3>Fondo Transparente</h3>
+                        <div class="use-case">Overlay en banners, thumbnails, intros video</div>
+                        <div class="download-row">
+                            <a href="SV_inline_transparent.svg" download class="dl-btn primary">↓ SVG</a>
+                            <button class="dl-btn"
+                                onclick="exportPNGTransparent('inline-transparent', 'SV_inline_transparent', 900, 200)">↓
+                                PNG</button>
+                            <button class="dl-btn"
+                                onclick="exportPNGTransparent('inline-transparent', 'SV_inline_transparent_2x', 1800, 400)">↓
+                                PNG @2x</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SHORT LOGO -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label">03 · Logo Compacto</div>
+            <div class="section-title">SV.</div>
+            <div class="section-desc">La versión reducida para espacios pequeños: favicons, iconos de app, watermarks,
+                redes sociales, pies de slide.</div>
+
+            <div class="logo-grid">
+                <!-- Short - Dark -->
+                <div class="logo-card">
+                    <div class="logo-preview dark-bg" id="short-dark">
+                        <div class="logo-render short">
+                            <div class="main-text">
+                                <span style="color:#F5F0E8">SV</span><span class="gradient-text">.</span>
+                            </div>
+                            <div class="sub-text" style="color:#6B6560">SALES VELOCITY</div>
+                        </div>
+                    </div>
+                    <div class="logo-card-info">
+                        <h3>Sobre Fondo Oscuro</h3>
+                        <div class="use-case">Favicon, footer slides, watermark video</div>
+                        <div class="download-row">
+                            <a href="SV_short_dark.svg" download class="dl-btn primary">↓ SVG</a>
+                            <button class="dl-btn" onclick="exportPNG('short-dark', 'SV_short_dark', 300, 300)">↓
+                                PNG</button>
+                            <button class="dl-btn" onclick="exportPNG('short-dark', 'SV_short_dark_2x', 600, 600)">↓ PNG
+                                @2x</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Short - Light -->
+                <div class="logo-card">
+                    <div class="logo-preview light-bg" id="short-light">
+                        <div class="logo-render short">
+                            <div class="main-text">
+                                <span style="color:#0A0908">SV</span><span class="gradient-text-dark">.</span>
+                            </div>
+                            <div class="sub-text" style="color:#9C9488">SALES VELOCITY</div>
+                        </div>
+                    </div>
+                    <div class="logo-card-info">
+                        <h3>Sobre Fondo Claro</h3>
+                        <div class="use-case">Documentos impresos, slides light mode</div>
+                        <div class="download-row">
+                            <a href="SV_short_light.svg" download class="dl-btn primary">↓ SVG</a>
+                            <button class="dl-btn" onclick="exportPNG('short-light', 'SV_short_light', 300, 300)">↓
+                                PNG</button>
+                            <button class="dl-btn" onclick="exportPNG('short-light', 'SV_short_light_2x', 600, 600)">↓
+                                PNG @2x</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Short - Transparent -->
+                <div class="logo-card">
+                    <div class="logo-preview transparent-bg" id="short-transparent">
+                        <div class="logo-render short">
+                            <div class="main-text">
+                                <span style="color:#F5F0E8">SV</span><span class="gradient-text">.</span>
+                            </div>
+                            <div class="sub-text" style="color:#6B6560">SALES VELOCITY</div>
+                        </div>
+                    </div>
+                    <div class="logo-card-info">
+                        <h3>Fondo Transparente</h3>
+                        <div class="use-case">Overlay en fotos, thumbnails, videos</div>
+                        <div class="download-row">
+                            <a href="SV_short_transparent.svg" download class="dl-btn primary">↓ SVG</a>
+                            <button class="dl-btn"
+                                onclick="exportPNGTransparent('short-transparent', 'SV_short_transparent', 300, 300)">↓
+                                PNG</button>
+                            <button class="dl-btn"
+                                onclick="exportPNGTransparent('short-transparent', 'SV_short_transparent_2x', 600, 600)">↓
+                                PNG @2x</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- USAGE GUIDE -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label">04 · Guía de Uso</div>
+            <div class="section-title">¿Cuándo usar cada versión?</div>
+
+            <div class="usage-grid">
+                <div class="usage-card">
+                    <div class="u-icon">📺</div>
+                    <h3>Logo Completo (Apilado)</h3>
+                    <p>Uso principal cuando hay espacio vertical. Headers de web, funnels de GHL, emails, slides de
+                        presentación, decks de venta.</p>
+                </div>
+                <div class="usage-card">
+                    <div class="u-icon">↔️</div>
+                    <h3>Logo Horizontal (Inline)</h3>
+                    <p>Cuando el espacio es horizontal: barras de navegación, headers estrechos, firmas de email, pies
+                        de documento, banners.</p>
+                </div>
+                <div class="usage-card">
+                    <div class="u-icon">📱</div>
+                    <h3>SV. Compacto</h3>
+                    <p>Espacios mínimos: favicon, icono de app, watermark en esquina de video, pie de slide, stickers,
+                        marca de agua.</p>
+                </div>
+                <div class="usage-card">
+                    <div class="u-icon">🌙</div>
+                    <h3>Variante Oscura</h3>
+                    <p>Uso principal. Web, GHL, emails, redes sociales, cualquier fondo oscuro o negro. El estándar por
+                        defecto.</p>
+                </div>
+                <div class="usage-card">
+                    <div class="u-icon">☀️</div>
+                    <h3>Variante Clara</h3>
+                    <p>Documentos impresos, propuestas formales, contratos, slides en light mode, tarjetas de
+                        presentación.</p>
+                </div>
+                <div class="usage-card">
+                    <div class="u-icon">🎬</div>
+                    <h3>Variante Transparente</h3>
+                    <p>Overlay en fotos, thumbnails de YouTube, intros de video, mockups, banners de redes sociales.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FILE REFERENCE -->
+    <section class="section">
+        <div class="container">
+            <div class="section-label">05 · Referencia de Archivos</div>
+            <div class="section-title">Estructura de Carpeta</div>
+
+            <div
+                style="background:rgba(0,0,0,.4); border:1px solid rgba(255,255,255,.06); border-radius:12px; padding:32px; margin-top:24px; font-family:'SF Mono','Fira Code',monospace; font-size:13px; line-height:2; color:rgba(255,255,255,.7)">
+                <span style="color:var(--amber)">brand-assets/logos/</span><br>
+                ├── <span style="color:var(--gold)">SV_full_dark.svg</span> → Logo completo (apilado) | fondo oscuro<br>
+                ├── <span style="color:var(--gold)">SV_full_light.svg</span> → Logo completo (apilado) | fondo claro<br>
+                ├── <span style="color:var(--gold)">SV_full_transparent.svg</span> → Logo completo (apilado) | sin
+                fondo<br>
+                ├── <span style="color:var(--gold)">SV_inline_dark.svg</span> → Logo horizontal (inline) | fondo
+                oscuro<br>
+                ├── <span style="color:var(--gold)">SV_inline_light.svg</span> → Logo horizontal (inline) | fondo
+                claro<br>
+                ├── <span style="color:var(--gold)">SV_inline_transparent.svg</span> → Logo horizontal (inline) | sin
+                fondo<br>
+                ├── <span style="color:var(--gold)">SV_short_dark.svg</span> → SV. compacto | fondo oscuro<br>
+                ├── <span style="color:var(--gold)">SV_short_light.svg</span> → SV. compacto | fondo claro<br>
+                ├── <span style="color:var(--gold)">SV_short_transparent.svg</span> → SV. compacto | sin fondo<br>
+                └── <span style="color:var(--amber)">LOGO_ASSETS.html</span> → Esta página (preview + descarga)
+            </div>
+
+            <p
+                style="margin-top:24px; font-size:.85rem; opacity:.6; border-left:3px solid var(--amber); padding-left:16px">
+                <strong>Tip:</strong> Los SVGs son la fuente de verdad — escalan sin perder calidad a cualquier tamaño.
+                Usa los PNGs solo para contextos que no soporten SVG (redes sociales, etc). Los PNGs @2x son para
+                pantallas retina.
+            </p>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        SALES VELOCITY — LOGO ASSETS KIT — v2.0 — MARZO 2026
+    </footer>
+
+    <!-- TOAST -->
+    <div class="toast" id="toast"></div>
+
+    <!-- EXPORT SCRIPT -->
+    <script>
+        function showToast(msg) {
+            const t = document.getElementById('toast');
+            t.textContent = msg;
+            t.classList.add('show');
+            setTimeout(() => t.classList.remove('show'), 2500);
+        }
+
+        function exportPNG(elementId, filename, width, height) {
+            const element = document.getElementById(elementId);
+            const canvas = document.createElement('canvas');
+            canvas.width = width;
+            canvas.height = height;
+            const ctx = canvas.getContext('2d');
+
+            // Get computed styles of the preview background
+            const style = getComputedStyle(element);
+            const bg = style.backgroundColor;
+
+            // Determine background
+            if (elementId.includes('light')) {
+                ctx.fillStyle = '#F5F0E8';
+            } else if (elementId.includes('dark')) {
+                ctx.fillStyle = '#0A0908';
+            } else {
+                ctx.fillStyle = '#0A0908';
+            }
+            ctx.fillRect(0, 0, width, height);
+
+            // Scale factor
+            const scale = width / element.offsetWidth;
+
+            // Use html2canvas approach via SVG foreignObject
+            const data = `<svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
+                <foreignObject width="100%" height="100%">
+                    <div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;display:flex;align-items:center;justify-content:center;background:${elementId.includes('light') ? '#F5F0E8' : '#0A0908'};">
+                        ${element.querySelector('.logo-render').outerHTML.replace(/style="[^"]*gradient[^"]*"/g, (match) => match)}
+                    </div>
+                </foreignObject>
+            </svg>`;
+
+            // Fallback: direct SVG file download approach
+            // Since canvas gradient text is complex, let's offer SVG download link
+            showToast('✓ Descarga iniciada — ' + filename + '.svg');
+
+            // Create downloadable SVG with embedded styles
+            const isShort = elementId.includes('short');
+            const isInline = elementId.includes('inline');
+            const isDark = elementId.includes('dark');
+            const isLight = elementId.includes('light');
+
+            let svg;
+            if (isShort) {
+                svg = generateShortSVG(isDark, isLight, width, height);
+            } else if (isInline) {
+                svg = generateInlineSVG(isDark, isLight, width, height);
+            } else {
+                svg = generateFullSVG(isDark, isLight, width, height);
+            }
+
+            const blob = new Blob([svg], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename + '.svg';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function exportPNGTransparent(elementId, filename, width, height) {
+            showToast('✓ Descarga SVG transparente — ' + filename);
+            const isShort = elementId.includes('short');
+            const isInline = elementId.includes('inline');
+            let svg;
+            if (isShort) {
+                svg = generateShortSVG(false, false, width, height, true);
+            } else if (isInline) {
+                svg = generateInlineSVG(false, false, width, height, true);
+            } else {
+                svg = generateFullSVG(false, false, width, height, true);
+            }
+
+            const blob = new Blob([svg], { type: 'image/svg+xml' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = filename + '.svg';
+            a.click();
+            URL.revokeObjectURL(url);
+        }
+
+        function generateFullSVG(isDark, isLight, w, h, transparent = false) {
+            const bg = transparent ? '' : `<rect width="${w}" height="${h}" fill="${isLight ? '#F5F0E8' : '#0A0908'}"/>`;
+            const textColor = isLight ? '#0A0908' : '#F5F0E8';
+            const subColor = isLight ? '#9C9488' : '#6B6560';
+            const gradColors = isLight
+                ? [{ o: '0%', c: '#B45309' }, { o: '50%', c: '#D97706' }, { o: '100%', c: '#B45309' }]
+                : [{ o: '0%', c: '#D97706' }, { o: '50%', c: '#FBBF24' }, { o: '100%', c: '#F59E0B' }];
+
+            const fontSize = Math.round(w * 0.12);
+            const subSize = Math.round(w * 0.0175);
+
+            return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
+  <defs>
+    <linearGradient id="ag" x1="0%" y1="0%" x2="100%" y2="100%">
+      ${gradColors.map(g => `<stop offset="${g.o}" stop-color="${g.c}"/>`).join('\n      ')}
+    </linearGradient>
+    <style>@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@800;900&amp;display=swap');</style>
+  </defs>
+  ${bg}
+  <text x="${w / 2}" y="${h * 0.52}" text-anchor="middle" font-family="'DM Sans',sans-serif" font-weight="900" font-size="${fontSize}" letter-spacing="-4">
+    <tspan fill="${textColor}">SALES </tspan><tspan fill="url(#ag)">VELOCITY</tspan>
+  </text>
+  <text x="${w / 2}" y="${h * 0.67}" text-anchor="middle" font-family="'DM Sans',sans-serif" font-weight="600" font-size="${subSize}" letter-spacing="5" fill="${subColor}">REVENUE ARCHITECTURE</text>
+</svg>`;
+        }
+
+        function generateShortSVG(isDark, isLight, w, h, transparent = false) {
+            const bg = transparent ? '' : `<rect width="${w}" height="${h}" fill="${isLight ? '#F5F0E8' : '#0A0908'}"/>`;
+            const textColor = isLight ? '#0A0908' : '#F5F0E8';
+            const subColor = isLight ? '#9C9488' : '#6B6560';
+            const gradColors = isLight
+                ? [{ o: '0%', c: '#B45309' }, { o: '50%', c: '#D97706' }, { o: '100%', c: '#B45309' }]
+                : [{ o: '0%', c: '#D97706' }, { o: '50%', c: '#FBBF24' }, { o: '100%', c: '#F59E0B' }];
+
+            const fontSize = Math.round(w * 0.4);
+            const subSize = Math.round(w * 0.037);
+
+            return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
+  <defs>
+    <linearGradient id="ag" x1="0%" y1="0%" x2="100%" y2="100%">
+      ${gradColors.map(g => `<stop offset="${g.o}" stop-color="${g.c}"/>`).join('\n      ')}
+    </linearGradient>
+    <style>@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@800;900&amp;display=swap');</style>
+  </defs>
+  ${bg}
+  <text x="${w / 2}" y="${h * 0.58}" text-anchor="middle" font-family="'DM Sans',sans-serif" font-weight="900" font-size="${fontSize}" letter-spacing="-4">
+    <tspan fill="${textColor}">SV</tspan><tspan fill="url(#ag)">.</tspan>
+  </text>
+  <text x="${w / 2}" y="${h * 0.72}" text-anchor="middle" font-family="'DM Sans',sans-serif" font-weight="600" font-size="${subSize}" letter-spacing="4" fill="${subColor}">SALES VELOCITY</text>
+</svg>`;
+        }
+
+        function generateInlineSVG(isDark, isLight, w, h, transparent = false) {
+            const bg = transparent ? '' : `<rect width="${w}" height="${h}" fill="${isLight ? '#F5F0E8' : '#0A0908'}"/>`;
+            const textColor = isLight ? '#0A0908' : '#F5F0E8';
+            const subColor = isLight ? '#9C9488' : '#6B6560';
+            const gradColors = isLight
+                ? [{ o: '0%', c: '#B45309' }, { o: '50%', c: '#D97706' }, { o: '100%', c: '#B45309' }]
+                : [{ o: '0%', c: '#D97706' }, { o: '50%', c: '#FBBF24' }, { o: '100%', c: '#F59E0B' }];
+
+            const fontSize = Math.round(w * 0.08);
+            const subSize = Math.round(w * 0.013);
+
+            return `<svg xmlns="http://www.w3.org/2000/svg" width="${w}" height="${h}" viewBox="0 0 ${w} ${h}">
+  <defs>
+    <linearGradient id="ag" x1="0%" y1="0%" x2="100%" y2="100%">
+      ${gradColors.map(g => `<stop offset="${g.o}" stop-color="${g.c}"/>`).join('\n      ')}
+    </linearGradient>
+    <style>@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@800;900&amp;display=swap');</style>
+  </defs>
+  ${bg}
+  <text x="${w / 2}" y="${h * 0.56}" text-anchor="middle" font-family="'DM Sans',sans-serif" font-weight="900" font-size="${fontSize}" letter-spacing="-3">
+    <tspan fill="${textColor}">SALES</tspan><tspan fill="url(#ag)">VELOCITY</tspan>
+  </text>
+  <text x="${w / 2}" y="${h * 0.74}" text-anchor="middle" font-family="'DM Sans',sans-serif" font-weight="600" font-size="${subSize}" letter-spacing="5" fill="${subColor}">REVENUE ARCHITECTURE</text>
+</svg>`;
+        }
+    </script>
+</body>
+
+</html>

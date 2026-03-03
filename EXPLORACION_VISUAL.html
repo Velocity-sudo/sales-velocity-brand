@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sales Velocity — Exploración Visual</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Outfit:wght@400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&family=Space+Grotesk:wght@300;400;500;600;700&family=DM+Sans:wght@300;400;500;600;700&family=Cormorant+Garamond:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: #08080A;
+            color: #fff;
+            overflow-x: hidden
+        }
+
+        /* Tab Navigation */
+        .tab-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            background: rgba(8, 8, 10, 0.92);
+            backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            height: 64px;
+            gap: 8px
+        }
+
+        .tab-nav .logo {
+            font-family: 'Outfit';
+            font-weight: 800;
+            font-size: 15px;
+            margin-right: auto;
+            letter-spacing: -0.3px;
+            opacity: 0.5
+        }
+
+        .tab-btn {
+            background: none;
+            border: 1px solid transparent;
+            color: rgba(255, 255, 255, 0.4);
+            font-family: 'Inter';
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            padding: 10px 20px;
+            border-radius: 100px;
+            cursor: pointer;
+            transition: all 0.4s
+        }
+
+        .tab-btn:hover {
+            color: rgba(255, 255, 255, 0.7)
+        }
+
+        .tab-btn.active {
+            color: #fff;
+            border-color: rgba(255, 255, 255, 0.15);
+            background: rgba(255, 255, 255, 0.05)
+        }
+
+        /* Panels */
+        .panel {
+            display: none;
+            min-height: 100vh;
+            padding-top: 64px
+        }
+
+        .panel.active {
+            display: block
+        }
+
+        /* Shared Styles */
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 32px
+        }
+
+        .direction-label {
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            margin-bottom: 16px
+        }
+
+        .direction-title {
+            font-size: clamp(36px, 5vw, 56px);
+            font-weight: 800;
+            line-height: 1.05;
+            margin-bottom: 16px
+        }
+
+        .direction-desc {
+            font-size: 16px;
+            line-height: 1.7;
+            opacity: 0.55;
+            max-width: 600px;
+            margin-bottom: 56px
+        }
+
+        /* Palette Row */
+        .palette {
+            display: flex;
+            gap: 16px;
+            margin-bottom: 64px;
+            flex-wrap: wrap
+        }
+
+        .swatch-card {
+            text-align: center
+        }
+
+        .swatch-card .box {
+            width: 72px;
+            height: 72px;
+            border-radius: 14px;
+            border: 2px solid rgba(255, 255, 255, 0.06);
+            margin-bottom: 8px;
+            transition: transform 0.3s
+        }
+
+        .swatch-card .box:hover {
+            transform: scale(1.12)
+        }
+
+        .swatch-card .name {
+            font-size: 10px;
+            font-weight: 600;
+            opacity: 0.7
+        }
+
+        .swatch-card .hex {
+            font-size: 9px;
+            font-family: monospace;
+            opacity: 0.35
+        }
+
+        /* Typography Preview */
+        .type-preview {
+            margin-bottom: 64px
+        }
+
+        .type-row {
+            display: grid;
+            grid-template-columns: 140px 1fr;
+            align-items: baseline;
+            padding: 20px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.04)
+        }
+
+        .type-label {
+            font-size: 10px;
+            font-weight: 600;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            opacity: 0.3
+        }
+
+        /* Mock Cards */
+        .mock-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 24px;
+            margin-bottom: 64px
+        }
+
+        .mock-card {
+            border-radius: 16px;
+            padding: 48px 36px;
+            min-height: 320px;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            transition: transform 0.4s
+        }
+
+        .mock-card:hover {
+            transform: translateY(-4px)
+        }
+
+        .mock-card .mc-tag {
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            margin-bottom: 12px
+        }
+
+        .mock-card .mc-title {
+            font-size: 28px;
+            font-weight: 800;
+            line-height: 1.15;
+            margin-bottom: 12px
+        }
+
+        .mock-card .mc-desc {
+            font-size: 13px;
+            line-height: 1.6;
+            opacity: 0.6
+        }
+
+        /* Logo Treatment */
+        .logo-preview {
+            text-align: center;
+            padding: 80px 0;
+            margin-bottom: 64px;
+            border-radius: 20px;
+            border: 1px solid rgba(255, 255, 255, 0.04)
+        }
+
+        .logo-preview .lp-main {
+            font-weight: 900;
+            line-height: 1;
+            margin-bottom: 8px
+        }
+
+        .logo-preview .lp-sub {
+            font-size: 12px;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            opacity: 0.35
+        }
+
+        /* CTA Mock */
+        .cta-mock {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            padding: 14px 32px;
+            border-radius: 100px;
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            transition: all 0.3s;
+            border: none;
+            margin-top: 24px
+        }
+
+        .cta-mock:hover {
+            transform: translateY(-2px)
+        }
+
+        /* Mood Tags */
+        .mood-tags {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-bottom: 48px
+        }
+
+        .mood-tag {
+            padding: 6px 16px;
+            border-radius: 100px;
+            font-size: 11px;
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            opacity: 0.5
+        }
+
+        /* Mini Section */
+        .mini-section {
+            margin-bottom: 48px
+        }
+
+        .mini-section h3 {
+            font-size: 13px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            opacity: 0.3;
+            margin-bottom: 24px
+        }
+
+        /* ==================== DIRECTION 1: DARK LUXURY ==================== */
+        #d1 {
+            background: #060507
+        }
+
+        #d1 .direction-label {
+            color: #C9A96E
+        }
+
+        #d1 .direction-title {
+            font-family: 'Playfair Display';
+            font-weight: 700;
+            letter-spacing: -1px
+        }
+
+        #d1 .logo-preview {
+            background: linear-gradient(180deg, #0C0A0F 0%, #100E14 100%);
+            border-color: rgba(201, 169, 110, 0.1)
+        }
+
+        #d1 .logo-preview .lp-main {
+            font-family: 'Playfair Display';
+            font-size: clamp(48px, 6vw, 72px);
+            letter-spacing: -2px
+        }
+
+        #d1 .logo-preview .lp-main span {
+            color: #C9A96E
+        }
+
+        #d1 .mock-card.mc1 {
+            background: linear-gradient(135deg, #0F0D13, #1A1622);
+            border: 1px solid rgba(201, 169, 110, 0.08)
+        }
+
+        #d1 .mock-card.mc2 {
+            background: linear-gradient(135deg, #C9A96E, #A68B4B);
+            color: #0A0810
+        }
+
+        #d1 .mock-card.mc1 .mc-tag {
+            color: #C9A96E
+        }
+
+        #d1 .cta-mock {
+            background: #C9A96E;
+            color: #0A0810
+        }
+
+        #d1 .cta-mock:hover {
+            background: #D4B87A;
+            box-shadow: 0 8px 32px rgba(201, 169, 110, 0.3)
+        }
+
+        /* ==================== DIRECTION 2: ELECTRIC FUTURISM ==================== */
+        #d2 {
+            background: #050510
+        }
+
+        #d2 .direction-label {
+            color: #818CF8
+        }
+
+        #d2 .direction-title {
+            font-family: 'Space Grotesk';
+            font-weight: 700;
+            letter-spacing: -1.5px
+        }
+
+        #d2 .logo-preview {
+            background: linear-gradient(135deg, #0A0A1A, #0F0D20);
+            border-color: rgba(129, 140, 248, 0.1)
+        }
+
+        #d2 .logo-preview .lp-main {
+            font-family: 'Space Grotesk';
+            font-size: clamp(48px, 6vw, 72px);
+            letter-spacing: -3px
+        }
+
+        #d2 .logo-preview .lp-main span {
+            background: linear-gradient(135deg, #818CF8, #06B6D4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        #d2 .mock-card.mc1 {
+            background: linear-gradient(135deg, #0D0D1F, #151530);
+            border: 1px solid rgba(129, 140, 248, 0.1)
+        }
+
+        #d2 .mock-card.mc2 {
+            background: linear-gradient(135deg, #818CF8, #6366F1);
+            color: #fff
+        }
+
+        #d2 .mock-card.mc1 .mc-tag {
+            color: #818CF8
+        }
+
+        #d2 .cta-mock {
+            background: linear-gradient(135deg, #818CF8, #6366F1);
+            color: #fff
+        }
+
+        #d2 .cta-mock:hover {
+            box-shadow: 0 8px 40px rgba(129, 140, 248, 0.35)
+        }
+
+        /* ==================== DIRECTION 3: WARM MINIMAL ==================== */
+        #d3 {
+            background: #0C0B09
+        }
+
+        #d3 .direction-label {
+            color: #D97706
+        }
+
+        #d3 .direction-title {
+            font-family: 'DM Sans';
+            font-weight: 700;
+            letter-spacing: -1px
+        }
+
+        #d3 .logo-preview {
+            background: linear-gradient(180deg, #110F0B, #15130E);
+            border-color: rgba(217, 119, 6, 0.08)
+        }
+
+        #d3 .logo-preview .lp-main {
+            font-family: 'DM Sans';
+            font-size: clamp(48px, 6vw, 72px);
+            letter-spacing: -2px
+        }
+
+        #d3 .logo-preview .lp-main span {
+            color: #D97706
+        }
+
+        #d3 .mock-card.mc1 {
+            background: linear-gradient(135deg, #13110D, #1C1912);
+            border: 1px solid rgba(217, 119, 6, 0.06)
+        }
+
+        #d3 .mock-card.mc2 {
+            background: linear-gradient(135deg, #D97706, #B45309);
+            color: #0C0B09
+        }
+
+        #d3 .mock-card.mc1 .mc-tag {
+            color: #D97706
+        }
+
+        #d3 .cta-mock {
+            background: #D97706;
+            color: #0C0B09
+        }
+
+        #d3 .cta-mock:hover {
+            background: #E5850A;
+            box-shadow: 0 8px 32px rgba(217, 119, 6, 0.3)
+        }
+
+        @media(max-width:768px) {
+            .mock-grid {
+                grid-template-columns: 1fr
+            }
+
+            .tab-nav {
+                padding: 0 16px;
+                gap: 4px
+            }
+
+            .tab-btn {
+                padding: 8px 12px;
+                font-size: 10px
+            }
+
+            .type-row {
+                grid-template-columns: 1fr;
+                gap: 8px
+            }
+
+            .palette {
+                gap: 10px
+            }
+
+            .swatch-card .box {
+                width: 56px;
+                height: 56px
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="tab-nav">
+        <div class="logo">EXPLORACIÓN VISUAL</div>
+        <button class="tab-btn active" onclick="show('d1')">Dirección 1</button>
+        <button class="tab-btn" onclick="show('d2')">Dirección 2</button>
+        <button class="tab-btn" onclick="show('d3')">Dirección 3</button>
+    </nav>
+
+    <!-- ==================== DIRECTION 1: DARK LUXURY ==================== -->
+    <div id="d1" class="panel active">
+        <div class="container">
+            <div class="direction-label">Dirección 01</div>
+            <div class="direction-title">Noir Luxury</div>
+            <div class="direction-desc">Inspiración en casas de moda de lujo — Tom Ford, Balenciaga, Bottega Veneta.
+                Oscuridad total con destellos dorados. Serif elegante que grita exclusividad. Para el cliente que busca
+                aspiración, no información.</div>
+
+            <div class="mood-tags">
+                <span class="mood-tag">Exclusivo</span>
+                <span class="mood-tag">Editorial</span>
+                <span class="mood-tag">High Fashion</span>
+                <span class="mood-tag">Aspiracional</span>
+                <span class="mood-tag">Misterioso</span>
+            </div>
+
+            <div class="mini-section">
+                <h3>Paleta de Color</h3>
+                <div class="palette">
+                    <div class="swatch-card">
+                        <div class="box" style="background:#060507"></div>
+                        <div class="name">Void</div>
+                        <div class="hex">#060507</div>
+                    </div>
+                    <div class="swatch-card">
+                        <div class="box" style="background:#0F0D13"></div>
+                        <div class="name">Onyx</div>
+                        <div class="hex">#0F0D13</div>
+                    </div>
+                    <div class="swatch-card">
+                        <div class="box" style="background:#1A1622"></div>
+                        <div class="name">Plum Dark</div>
+                        <div class="hex">#1A1622</div>
+                    </div>
+                    <div class="swatch-card">
+                        <div class="box" style="background:#C9A96E"></div>
+                        <div class="name">Champagne</div>
+                        <div class="hex">#C9A96E</div>
+                    </div>
+                    <div class="swatch-card">
+                        <div class="box" style="background:#D4B87A"></div>
+                        <div class="name">Gold Light</div>
+                        <div class="hex">#D4B87A</div>
+                    </div>
+                    <div class="swatch-card">
+                        <div class="box" style="background:#F5F0E8;border-color:rgba(0,0,0,0.1)"></div>
+                        <div class="name">Ivory</div>
+                        <div class="hex">#F5F0E8</div>
+                    </div>
+                    <div class="swatch-card">
+                        <div class="box" style="background:#8B7355"></div>
+                        <div class="name">Bronze</div>
+                        <div class="hex">#8B7355</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>Tipografía</h3>
+                <div class="type-preview">
+                    <div class="type-row">
+                        <div class="type-label">Display</div>
+                        <div style="font-family:'Playfair Display';font-size:42px;font-weight:700;letter-spacing:-1px">
+                            Sales Velocity</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-label">Headlines</div>
+                        <div style="font-family:'Playfair Display';font-size:28px;font-weight:600">Resultados que
+                            transforman imperios</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-label">Body</div>
+                        <div style="font-family:'Inter';font-size:15px;font-weight:300;opacity:0.6;line-height:1.7">El
+                            sistema más exclusivo de aceleración de ventas digitales para negocios que facturan más de
+                            $10K/mes y buscan multiplicar su presencia.</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-label">Caption</div>
+                        <div
+                            style="font-family:'Inter';font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;opacity:0.3">
+                            Solo por invitación</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>Logo Treatment</h3>
+                <div class="logo-preview">
+                    <div class="lp-main">SALES <span>VELOCITY</span></div>
+                    <div class="lp-sub">Premium Growth System</div>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>Aplicaciones</h3>
+                <div class="mock-grid">
+                    <div class="mock-card mc1">
+                        <div class="mc-tag">Caso de Éxito</div>
+                        <div class="mc-title" style="font-family:'Playfair Display'">De $8K a $47K en 90 días</div>
+                        <div class="mc-desc">Cómo Jorge multiplicó x5 sus ventas con el sistema completo de adquisición
+                            digital.</div>
+                        <button class="cta-mock">Ver caso completo →</button>
+                    </div>
+                    <div class="mock-card mc2">
+                        <div class="mc-tag" style="opacity:0.7">Masterclass Exclusiva</div>
+                        <div class="mc-title" style="font-family:'Playfair Display'">El sistema de $100M que nadie te
+                            enseña</div>
+                        <div class="mc-desc" style="opacity:0.7">Accede a la presentación privada del Sales Velocity
+                            System.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== DIRECTION 2: ELECTRIC FUTURISM ==================== -->
+    <div id="d2" class="panel">
+        <div class="container">
+            <div class="direction-label">Dirección 02</div>
+            <div class="direction-title">Electric Futurism</div>
+            <div class="direction-desc">Inspiración en tech premium — Linear, Stripe, Vercel. Gradientes violeta-cyan,
+                tipografía geométrica ultra-moderna, resplandores neón sutiles. Para el cliente que quiere estar en la
+                vanguardia.</div>
+
+            <div class="mood-tags">
+                <span class="mood-tag">Futurista</span>
+                <span class="mood-tag">Tech</span>
+                <span class="mood-tag">Innovador</span>
+                <span class="mood-tag">Dinámico</span>
+                <span class="mood-tag">Vanguardia</span>
+            </div>
+
+            <div class="mini-section">
+                <h3>Paleta de Color</h3>
+                <div class="palette">
+                    <div class="swatch-card">
+                        <div class="box" style="background:#050510"></div>
+                        <div class="name">Deep Space</div>
+                        <div class="hex">#050510</div>
+                    </div>
+                    <div class="swatch-card">
+                        <div class="box" style="background:#0D0D1F"></div>
+                        <div class="name">Midnight</div>
+                        <div class="hex">#0D0D1F</div>
+                    </div>
+                    <div class="swatch-card">
+                        <div class="box" style="background:#151530"></div>
+                        <div class="name">Nebula</div>
+                        <div class="hex">#151530</div>
+                    </div>
+                    <div class="swatch-card">
+                        <div class="box" style="background:#818CF8"></div>
+                        <div class="name">Indigo</div>
+                        <div class="hex">#818CF8</div>
+                    </div>
+                    <div class="swatch-card">
+                        <div class="box" style="background:#6366F1"></div>
+                        <div class="name">Violet</div>
+                        <div class="hex">#6366F1</div>
+                    </div>
+                    <div class="swatch-card">
+                        <div class="box" style="background:#06B6D4"></div>
+                        <div class="name">Cyan</div>
+                        <div class="hex">#06B6D4</div>
+                    </div>
+                    <div class="swatch-card">
+                        <div class="box" style="background:#F0ABFC"></div>
+                        <div class="name">Lavender</div>
+                        <div class="hex">#F0ABFC</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>Tipografía</h3>
+                <div class="type-preview">
+                    <div class="type-row">
+                        <div class="type-label">Display</div>
+                        <div style="font-family:'Space Grotesk';font-size:42px;font-weight:700;letter-spacing:-2px">
+                            Sales Velocity</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-label">Headlines</div>
+                        <div style="font-family:'Space Grotesk';font-size:28px;font-weight:600;letter-spacing:-1px">
+                            Sistemas inteligentes de crecimiento</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-label">Body</div>
+                        <div style="font-family:'Inter';font-size:15px;font-weight:400;opacity:0.55;line-height:1.7">
+                            Automatización de ventas, funnels de alta conversión, y estrategias de tráfico diseñadas con
+                            datos.</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-label">Caption</div>
+                        <div
+                            style="font-family:'Space Grotesk';font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;opacity:0.3">
+                            Potenciado por IA</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>Logo Treatment</h3>
+                <div class="logo-preview">
+                    <div class="lp-main">SALES <span>VELOCITY</span></div>
+                    <div class="lp-sub">Growth Engineering</div>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>Aplicaciones</h3>
+                <div class="mock-grid">
+                    <div class="mock-card mc1">
+                        <div class="mc-tag">Sistema</div>
+                        <div class="mc-title" style="font-family:'Space Grotesk';letter-spacing:-1px">Tu pipeline de
+                            $100K en automático</div>
+                        <div class="mc-desc">Funnels, automaciones, y tráfico alineados para escalar sin depender de tu
+                            tiempo.</div>
+                        <button class="cta-mock">Explorar sistema →</button>
+                    </div>
+                    <div class="mock-card mc2">
+                        <div class="mc-tag" style="opacity:0.8">Webinar en Vivo</div>
+                        <div class="mc-title" style="font-family:'Space Grotesk';letter-spacing:-1px">La máquina de
+                            ventas del futuro</div>
+                        <div class="mc-desc" style="opacity:0.8">Descubre cómo los negocios más inteligentes venden
+                            24/7.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ==================== DIRECTION 3: WARM ARCHITECTURAL ==================== -->
+    <div id="d3" class="panel">
+        <div class="container">
+            <div class="direction-label">Dirección 03</div>
+            <div class="direction-title">Warm Architectural</div>
+            <div class="direction-desc">Inspiración en marcas de lujo discreto — Aesop, Porsche Design, estudios de
+                arquitectura. Tonos cálidos oscuros, amber como acento de poder, tipografía geométrica limpia.
+                Sofisticación sin gritar.</div>
+
+            <div class="mood-tags">
+                <span class="mood-tag">Sofisticado</span>
+                <span class="mood-tag">Cálido</span>
+                <span class="mood-tag">Arquitectónico</span>
+                <span class="mood-tag">Confianza</span>
+                <span class="mood-tag">Elegante</span>
+            </div>
+
+            <div class="mini-section">
+                <h3>Paleta de Color</h3>
+                <div class="palette">
+                    <div class="swatch-card">
+                        <div class="box" style="background:#0C0B09"></div>
+                        <div class="name">Carbon</div>
+                        <div class="hex">#0C0B09</div>
+                    </div>
+                    <div class="swatch-card">
+                        <div class="box" style="background:#13110D"></div>
+                        <div class="name">Espresso</div>
+                        <div class="hex">#13110D</div>
+                    </div>
+                    <div class="swatch-card">
+                        <div class="box" style="background:#1C1912"></div>
+                        <div class="name">Walnut</div>
+                        <div class="hex">#1C1912</div>
+                    </div>
+                    <div class="swatch-card">
+                        <div class="box" style="background:#D97706"></div>
+                        <div class="name">Amber</div>
+                        <div class="hex">#D97706</div>
+                    </div>
+                    <div class="swatch-card">
+                        <div class="box" style="background:#B45309"></div>
+                        <div class="name">Copper</div>
+                        <div class="hex">#B45309</div>
+                    </div>
+                    <div class="swatch-card">
+                        <div class="box" style="background:#E8DED0;border-color:rgba(0,0,0,0.1)"></div>
+                        <div class="name">Sand</div>
+                        <div class="hex">#E8DED0</div>
+                    </div>
+                    <div class="swatch-card">
+                        <div class="box" style="background:#78716C"></div>
+                        <div class="name">Stone</div>
+                        <div class="hex">#78716C</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>Tipografía</h3>
+                <div class="type-preview">
+                    <div class="type-row">
+                        <div class="type-label">Display</div>
+                        <div style="font-family:'DM Sans';font-size:42px;font-weight:700;letter-spacing:-1.5px">Sales
+                            Velocity</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-label">Headlines</div>
+                        <div style="font-family:'DM Sans';font-size:28px;font-weight:600;letter-spacing:-0.5px">
+                            Construimos máquinas de ventas</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-label">Body</div>
+                        <div style="font-family:'Inter';font-size:15px;font-weight:400;opacity:0.55;line-height:1.7">
+                            Estrategia, implementación y aceleración de ingresos para negocios premium que quieren
+                            dominar su mercado digital.</div>
+                    </div>
+                    <div class="type-row">
+                        <div class="type-label">Caption</div>
+                        <div
+                            style="font-family:'DM Sans';font-size:11px;font-weight:600;letter-spacing:3px;text-transform:uppercase;opacity:0.3">
+                            Diseñado para líderes</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>Logo Treatment</h3>
+                <div class="logo-preview">
+                    <div class="lp-main">SALES <span>VELOCITY</span></div>
+                    <div class="lp-sub">Revenue Architecture</div>
+                </div>
+            </div>
+
+            <div class="mini-section">
+                <h3>Aplicaciones</h3>
+                <div class="mock-grid">
+                    <div class="mock-card mc1">
+                        <div class="mc-tag">Metodología</div>
+                        <div class="mc-title" style="font-family:'DM Sans';letter-spacing:-0.5px">El blueprint de
+                            crecimiento que funciona</div>
+                        <div class="mc-desc">Un sistema probado que convierte atención en ingresos predecibles.</div>
+                        <button class="cta-mock">Conocer el método →</button>
+                    </div>
+                    <div class="mock-card mc2">
+                        <div class="mc-tag" style="opacity:0.7">Presentación Privada</div>
+                        <div class="mc-title" style="font-family:'DM Sans';letter-spacing:-0.5px">Tu negocio merece un
+                            sistema de élite</div>
+                        <div class="mc-desc" style="opacity:0.7">Reserva tu sesión estratégica con nuestro equipo.</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function show(id) {
+            document.querySelectorAll('.panel').forEach(p => p.classList.remove('active'));
+            document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+            document.getElementById(id).classList.add('active');
+            event.target.classList.add('active');
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="300" viewBox="0 0 800 300">
+  <defs>
+    <linearGradient id="amberGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#B45309"/>
+      <stop offset="50%" stop-color="#D97706"/>
+      <stop offset="100%" stop-color="#B45309"/>
+    </linearGradient>
+    <style>
+      @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@800;900&amp;display=swap');
+    </style>
+  </defs>
+  <rect width="800" height="300" fill="#F5F0E8"/>
+  <text x="400" y="155" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="900" font-size="96" letter-spacing="-4">
+    <tspan fill="#0A0908">SALES </tspan><tspan fill="url(#amberGradient)">VELOCITY</tspan>
+  </text>
+  <text x="400" y="200" text-anchor="middle" font-family="'DM Sans', sans-serif" font-weight="600" font-size="14" letter-spacing="5" fill="#9C9488">REVENUE ARCHITECTURE</text>
+</svg>
