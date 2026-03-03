@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GHL Branding Guide — Sales Velocity</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@400;500;600;700;800;900&family=Outfit:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+    <style>
+        :root {
+            --void: #0A0908;
+            --carbon: #0F0E0B;
+            --espresso: #15130E;
+            --walnut: #1E1B14;
+            --stone: #2A2620;
+            --amber: #D97706;
+            --amber-light: #F59E0B;
+            --copper: #B45309;
+            --gold: #FBBF24;
+            --sand: #E8DED0;
+            --cream: #F5F0E8;
+            --warm-gray: #9C9488;
+            --muted: #6B6560;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--void);
+            color: var(--cream);
+            line-height: 1.7;
+            min-height: 100vh;
+        }
+
+        /* NAV */
+        .nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+            padding: 18px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(10, 9, 8, 0.85);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(245, 240, 232, 0.04);
+        }
+
+        .nav-logo {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+        }
+
+        .nav-logo span {
+            color: var(--amber);
+        }
+
+        .nav-badge {
+            font-family: 'Outfit', sans-serif;
+            font-size: 10px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            padding: 6px 16px;
+            border: 1px solid rgba(217, 119, 6, 0.2);
+            border-radius: 100px;
+            color: var(--amber);
+            background: rgba(217, 119, 6, 0.05);
+        }
+
+        /* HERO */
+        .hero {
+            padding: 140px 40px 80px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            width: 500px;
+            height: 500px;
+            background: rgba(217, 119, 6, 0.04);
+            border-radius: 50%;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            filter: blur(120px);
+            pointer-events: none;
+        }
+
+        .hero h1 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 42px;
+            font-weight: 900;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+        }
+
+        .hero h1 span {
+            color: var(--amber);
+        }
+
+        .hero p {
+            color: var(--warm-gray);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* CONTAINER */
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px 80px;
+        }
+
+        /* SECTION */
+        .section {
+            margin-bottom: 60px;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 28px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid rgba(245, 240, 232, 0.06);
+        }
+
+        .section-num {
+            font-family: 'Outfit', sans-serif;
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--amber);
+            min-width: 28px;
+        }
+
+        .section-title {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 24px;
+            font-weight: 800;
+        }
+
+        /* STEP CARD */
+        .step-card {
+            background: rgba(245, 240, 232, 0.02);
+            border: 1px solid rgba(245, 240, 232, 0.05);
+            border-radius: 16px;
+            padding: 32px;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .step-card:hover {
+            border-color: rgba(217, 119, 6, 0.2);
+        }
+
+        .step-card h3 {
+            font-family: 'DM Sans', sans-serif;
+            font-size: 18px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+
+        .step-card h3 .emoji {
+            margin-right: 8px;
+        }
+
+        .step-card p {
+            color: var(--warm-gray);
+            font-size: 14px;
+            margin-bottom: 16px;
+        }
+
+        .step-card .path {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            color: var(--amber);
+            padding: 8px 16px;
+            background: rgba(217, 119, 6, 0.06);
+            border: 1px solid rgba(217, 119, 6, 0.12);
+            border-radius: 8px;
+            margin-bottom: 12px;
+        }
+
+        .step-card .path svg {
+            width: 14px;
+            height: 14px;
+            fill: var(--amber);
+        }
+
+        .step-card .spec {
+            font-size: 13px;
+            color: var(--muted);
+            margin-top: 12px;
+        }
+
+        .step-card .spec strong {
+            color: var(--sand);
+        }
+
+        .step-card ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .step-card ul li {
+            padding: 6px 0;
+            font-size: 14px;
+            color: var(--warm-gray);
+            border-bottom: 1px solid rgba(245, 240, 232, 0.03);
+        }
+
+        .step-card ul li:last-child {
+            border: none;
+        }
+
+        .step-card ul li strong {
+            color: var(--cream);
+        }
+
+        /* CODE BLOCK */
+        .code-block {
+            background: var(--carbon);
+            border: 1px solid rgba(245, 240, 232, 0.06);
+            border-radius: 12px;
+            padding: 24px;
+            margin: 20px 0;
+            overflow-x: auto;
+            position: relative;
+        }
+
+        .code-block .lang-label {
+            position: absolute;
+            top: 10px;
+            right: 14px;
+            font-family: 'Outfit', sans-serif;
+            font-size: 10px;
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .code-block pre {
+            font-family: 'JetBrains Mono', 'SF Mono', 'Fira Code', monospace;
+            font-size: 12.5px;
+            line-height: 1.8;
+            color: var(--sand);
+            white-space: pre;
+            tab-size: 2;
+        }
+
+        .code-block pre .comment {
+            color: var(--muted);
+        }
+
+        .code-block pre .prop {
+            color: var(--amber-light);
+        }
+
+        .code-block pre .val {
+            color: #C9A96E;
+        }
+
+        .code-block pre .sel {
+            color: var(--cream);
+        }
+
+        .code-block pre .imp {
+            color: #E87A6D;
+        }
+
+        /* COPY BUTTON */
+        .copy-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 10px 20px;
+            background: linear-gradient(135deg, var(--amber), var(--amber-light));
+            color: var(--void);
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 13px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            margin-top: 12px;
+        }
+
+        .copy-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(217, 119, 6, 0.25);
+        }
+
+        .copy-btn.copied {
+            background: #22C55E;
+        }
+
+        /* LOGO PREVIEW */
+        .logo-preview {
+            background: var(--walnut);
+            border: 1px solid rgba(245, 240, 232, 0.06);
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 16px 0;
+        }
+
+        .logo-preview img {
+            max-width: 350px;
+            height: auto;
+        }
+
+        .logo-preview.dark {
+            background: #1a1a2e;
+        }
+
+        .logo-preview.light {
+            background: #f0f0f0;
+        }
+
+        /* WARNING BOX */
+        .warning {
+            background: rgba(217, 119, 6, 0.06);
+            border: 1px solid rgba(217, 119, 6, 0.15);
+            border-left: 4px solid var(--amber);
+            border-radius: 12px;
+            padding: 20px 24px;
+            margin: 20px 0;
+        }
+
+        .warning .label {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-family: 'DM Sans', sans-serif;
+            font-weight: 700;
+            font-size: 14px;
+            color: var(--amber);
+            margin-bottom: 6px;
+        }
+
+        .warning p {
+            font-size: 13px;
+            color: var(--warm-gray);
+        }
+
+        /* CHECKLIST */
+        .checklist {
+            list-style: none;
+            padding: 0;
+        }
+
+        .checklist li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(245, 240, 232, 0.04);
+            font-size: 14px;
+        }
+
+        .checklist li:last-child {
+            border: none;
+        }
+
+        .checklist .check {
+            width: 22px;
+            height: 22px;
+            min-width: 22px;
+            border-radius: 6px;
+            background: rgba(217, 119, 6, 0.1);
+            border: 1px solid rgba(217, 119, 6, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--amber);
+            font-size: 12px;
+            margin-top: 2px;
+        }
+
+        .footer {
+            text-align: center;
+            padding: 40px;
+            border-top: 1px solid rgba(245, 240, 232, 0.04);
+            color: var(--muted);
+            font-size: 12px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            font-family: 'Outfit', sans-serif;
+        }
+
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 28px;
+            }
+
+            .container {
+                padding: 0 20px 60px;
+            }
+
+            .step-card {
+                padding: 24px 20px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- NAV -->
+    <nav class="nav">
+        <div class="nav-logo">SALES<span>VELOCITY</span></div>
+        <div class="nav-badge">GHL Branding Guide</div>
+    </nav>
+
+    <!-- HERO -->
+    <div class="hero">
+        <h1>Brandear <span>GoHighLevel</span></h1>
+        <p>Guía paso a paso para aplicar la identidad Sales Velocity a tu dashboard de GHL. Logo, colores, dark mode y
+            custom CSS.</p>
+    </div>
+
+    <!-- CONTENT -->
+    <div class="container">
+
+        <!-- SECTION 1: LOGO -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-num">01</span>
+                <h2 class="section-title">Cambiar el Logo del Dashboard</h2>
+            </div>
+
+            <div class="step-card">
+                <h3><span class="emoji">📍</span> Ruta en GHL</h3>
+                <div class="path">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg>
+                    Settings → Company → Whitelabel → Logo &amp; Branding
+                </div>
+                <p>El logo que subas aquí aparecerá en la <strong>pantalla de login</strong>, el <strong>header del
+                        dashboard</strong> (izq. arriba), y en los <strong>emails del sistema</strong>.</p>
+                <div class="spec">
+                    <strong>📐 Tamaño recomendado:</strong> 350px × 180px (máx. 2.5MB)<br>
+                    <strong>📁 Formato:</strong> PNG con fondo transparente<br>
+                    <strong>📦 Archivo a subir:</strong> <code>SV_GHL_header.png</code> (para el header horizontal)<br>
+                    <strong>📦 Para login:</strong> <code>SV_GHL_login.png</code> (versión stacked más grande)
+                </div>
+            </div>
+
+            <div class="step-card">
+                <h3><span class="emoji">📋</span> Instrucciones</h3>
+                <ul>
+                    <li><strong>1.</strong> Ve a tu dashboard de agencia GHL</li>
+                    <li><strong>2.</strong> Click en ⚙️ <strong>Settings</strong> (gear icon abajo izq.)</li>
+                    <li><strong>3.</strong> Tab → <strong>Company</strong></li>
+                    <li><strong>4.</strong> Sub-tab → <strong>Whitelabel</strong></li>
+                    <li><strong>5.</strong> Sección <strong>"Logo & Branding"</strong> → click en el cuadro de upload
+                    </li>
+                    <li><strong>6.</strong> Sube <code>SV_GHL_header.png</code></li>
+                    <li><strong>7.</strong> Click <strong>Save</strong></li>
+                </ul>
+            </div>
+
+            <div class="warning">
+                <div class="label">⚠️ Nota importante</div>
+                <p>El logo se ve sobre fondo blanco (light mode) o fondo oscuro (dark mode). El archivo
+                    <code>SV_GHL_header.png</code> tiene "SALES" en cream y "VELOCITY" en ámbar — se ve perfecto en dark
+                    mode. Si usas light mode, usa <code>SV_inline_dark.svg</code> o la versión con SALES en gris oscuro.
+                </p>
+            </div>
+        </div>
+
+        <!-- SECTION 2: DARK MODE -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-num">02</span>
+                <h2 class="section-title">Activar Dark Mode</h2>
+            </div>
+
+            <div class="step-card">
+                <h3><span class="emoji">🌙</span> GHL tiene Dark Mode nativo</h3>
+                <div class="path">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg>
+                    Settings → Company → Whitelabel → Theme Selection
+                </div>
+                <p>GHL ofrece selección de tema directamente: <strong>Light Mode</strong> o <strong>Dark Mode</strong>.
+                    Para que todo se sienta Sales Velocity, activa <strong>Dark Mode</strong>.</p>
+                <ul>
+                    <li><strong>1.</strong> Ve a Settings → Company → Whitelabel</li>
+                    <li><strong>2.</strong> Scroll hasta <strong>"Theme Selection"</strong></li>
+                    <li><strong>3.</strong> Selecciona <strong>Dark Mode</strong></li>
+                    <li><strong>4.</strong> Click <strong>Save</strong></li>
+                </ul>
+            </div>
+
+            <div class="warning">
+                <div class="label">💡 Tip</div>
+                <p>El dark mode nativo de GHL cambia solo el <strong>Agency Dashboard</strong>. No afecta los
+                    sub-accounts de los clientes — cada sub-account tiene su propio tema. Para que el sub-account
+                    también sea dark, ve a los settings de cada sub-account.</p>
+            </div>
+        </div>
+
+        <!-- SECTION 3: FAVICON -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-num">03</span>
+                <h2 class="section-title">Favicon (ícono del tab del navegador)</h2>
+            </div>
+
+            <div class="step-card">
+                <h3><span class="emoji">🔖</span> Configurar en cada punto</h3>
+                <p>GHL no tiene un favicon global a nivel agencia. Se configura por separado en:</p>
+                <ul>
+                    <li><strong>Websites/Funnels:</strong> Sub-account → Sites → abrir sitio → Site Settings →
+                        <strong>Favicon</strong></li>
+                    <li><strong>Client Portal:</strong> Sub-account → Client Portal → Branding →
+                        <strong>Favicon</strong></li>
+                    <li><strong>Memberships:</strong> Sub-account → Memberships → Courses → <strong>Favicon</strong>
+                    </li>
+                </ul>
+                <div class="spec">
+                    <strong>📦 Archivo:</strong> <code>SV_GHL_favicon.png</code> (SV. compacto, 128×128px)
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION 4: CUSTOM CSS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-num">04</span>
+                <h2 class="section-title">Custom CSS — Tema Sales Velocity</h2>
+            </div>
+
+            <div class="step-card">
+                <h3><span class="emoji">🎨</span> CSS Premium para GHL</h3>
+                <div class="path">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg>
+                    Settings → Company → Whitelabel → Custom Code → Custom CSS
+                </div>
+                <p>Pega este CSS para inyectar la identidad Sales Velocity en el dashboard. Envuelto en
+                    <code>&lt;style&gt;</code> como GHL lo requiere.</p>
+            </div>
+
+            <div class="code-block" id="css-code">
+                <span class="lang-label">CSS</span>
+                <pre><span class="comment">/* ========================================
+   SALES VELOCITY — GHL CUSTOM THEME
+   Pegar en: Settings → Company → Whitelabel → Custom CSS
+   ======================================== */</span>
+
+<span class="sel">&lt;style&gt;</span>
+
+<span class="comment">/* Google Fonts Import */</span>
+<span class="sel">@import</span> <span class="val">url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@600;700;800;900&display=swap')</span>;
+
+<span class="comment">/* ── Sidebar Background ── */</span>
+<span class="sel">.hl_sidebar</span> {
+  <span class="prop">background</span>: <span class="val">#0F0E0B</span> <span class="imp">!important</span>;
+  <span class="prop">border-right</span>: <span class="val">1px solid rgba(245, 240, 232, 0.04)</span> <span class="imp">!important</span>;
+}
+
+<span class="comment">/* ── Top Header ── */</span>
+<span class="sel">.hl_topHeader</span> {
+  <span class="prop">background</span>: <span class="val">#0A0908</span> <span class="imp">!important</span>;
+  <span class="prop">border-bottom</span>: <span class="val">1px solid rgba(245, 240, 232, 0.04)</span> <span class="imp">!important</span>;
+}
+
+<span class="comment">/* ── Sidebar Nav Items ── */</span>
+<span class="sel">.hl_navItem:hover</span>,
+<span class="sel">.hl_navItem.active</span> {
+  <span class="prop">background</span>: <span class="val">rgba(217, 119, 6, 0.08)</span> <span class="imp">!important</span>;
+  <span class="prop">border-left</span>: <span class="val">3px solid #D97706</span> <span class="imp">!important</span>;
+}
+
+<span class="sel">.hl_navItem.active .hl_navItem--label</span> {
+  <span class="prop">color</span>: <span class="val">#F59E0B</span> <span class="imp">!important</span>;
+}
+
+<span class="comment">/* ── Login Page Button ── */</span>
+<span class="sel">.login__button</span> {
+  <span class="prop">background</span>: <span class="val">linear-gradient(135deg, #D97706, #F59E0B)</span> <span class="imp">!important</span>;
+  <span class="prop">color</span>: <span class="val">#0A0908</span> <span class="imp">!important</span>;
+  <span class="prop">font-family</span>: <span class="val">'DM Sans', sans-serif</span> <span class="imp">!important</span>;
+  <span class="prop">font-weight</span>: <span class="val">700</span> <span class="imp">!important</span>;
+  <span class="prop">border-radius</span>: <span class="val">12px</span> <span class="imp">!important</span>;
+  <span class="prop">border</span>: <span class="val">none</span> <span class="imp">!important</span>;
+  <span class="prop">transition</span>: <span class="val">all 0.3s ease</span> <span class="imp">!important</span>;
+}
+
+<span class="sel">.login__button:hover</span> {
+  <span class="prop">transform</span>: <span class="val">translateY(-2px)</span>;
+  <span class="prop">box-shadow</span>: <span class="val">0 10px 30px rgba(217, 119, 6, 0.25)</span>;
+}
+
+<span class="comment">/* ── Form Fields (Premium Touch) ── */</span>
+<span class="sel">.hl_formField input</span>,
+<span class="sel">.hl_formField textarea</span>,
+<span class="sel">.hl_formField select</span> {
+  <span class="prop">border-radius</span>: <span class="val">10px</span> <span class="imp">!important</span>;
+  <span class="prop">border</span>: <span class="val">1px solid rgba(245, 240, 232, 0.08)</span> <span class="imp">!important</span>;
+  <span class="prop">font-family</span>: <span class="val">'Inter', sans-serif</span> <span class="imp">!important</span>;
+  <span class="prop">transition</span>: <span class="val">border-color 0.3s ease</span> <span class="imp">!important</span>;
+}
+
+<span class="sel">.hl_formField input:focus</span>,
+<span class="sel">.hl_formField textarea:focus</span> {
+  <span class="prop">border-color</span>: <span class="val">#D97706</span> <span class="imp">!important</span>;
+  <span class="prop">box-shadow</span>: <span class="val">0 0 0 3px rgba(217, 119, 6, 0.1)</span> <span class="imp">!important</span>;
+}
+
+<span class="comment">/* ── Primary Action Buttons ── */</span>
+<span class="sel">.hl-btn-primary</span>,
+<span class="sel">button.btn-primary</span>,
+<span class="sel">.btn-primary</span> {
+  <span class="prop">background</span>: <span class="val">linear-gradient(135deg, #D97706, #F59E0B)</span> <span class="imp">!important</span>;
+  <span class="prop">color</span>: <span class="val">#0A0908</span> <span class="imp">!important</span>;
+  <span class="prop">font-weight</span>: <span class="val">700</span> <span class="imp">!important</span>;
+  <span class="prop">border-radius</span>: <span class="val">10px</span> <span class="imp">!important</span>;
+  <span class="prop">border</span>: <span class="val">none</span> <span class="imp">!important</span>;
+}
+
+<span class="comment">/* ── Typography Global ── */</span>
+<span class="sel">body</span>,
+<span class="sel">.hl_layout</span> {
+  <span class="prop">font-family</span>: <span class="val">'Inter', sans-serif</span> <span class="imp">!important</span>;
+}
+
+<span class="sel">h1, h2, h3, h4, h5</span> {
+  <span class="prop">font-family</span>: <span class="val">'DM Sans', sans-serif</span> <span class="imp">!important</span>;
+}
+
+<span class="comment">/* ── Scrollbar (Dark Premium) ── */</span>
+<span class="sel">::-webkit-scrollbar</span> {
+  <span class="prop">width</span>: <span class="val">6px</span>;
+}
+<span class="sel">::-webkit-scrollbar-track</span> {
+  <span class="prop">background</span>: <span class="val">#0A0908</span>;
+}
+<span class="sel">::-webkit-scrollbar-thumb</span> {
+  <span class="prop">background</span>: <span class="val">rgba(217, 119, 6, 0.3)</span>;
+  <span class="prop">border-radius</span>: <span class="val">10px</span>;
+}
+
+<span class="sel">&lt;/style&gt;</span></pre>
+            </div>
+
+            <button class="copy-btn" onclick="copyCSS()">
+                📋 Copiar CSS Completo
+            </button>
+        </div>
+
+        <!-- SECTION 5: BRAND BOARDS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-num">05</span>
+                <h2 class="section-title">Brand Boards — Colores Globales</h2>
+            </div>
+
+            <div class="step-card">
+                <h3><span class="emoji">🎯</span> Guardar colores en GHL</h3>
+                <div class="path">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg>
+                    Marketing → Brand Boards → Global Settings
+                </div>
+                <p>GHL tiene "Brand Boards" donde guardas colores que aparecen en el color picker de todo el sistema.
+                    Agrega estos:</p>
+                <ul>
+                    <li><strong>Primary (Amber):</strong> <code>#D97706</code></li>
+                    <li><strong>Amber Light:</strong> <code>#F59E0B</code></li>
+                    <li><strong>Gold:</strong> <code>#FBBF24</code></li>
+                    <li><strong>Background (Void):</strong> <code>#0A0908</code></li>
+                    <li><strong>Carbon:</strong> <code>#0F0E0B</code></li>
+                    <li><strong>Espresso:</strong> <code>#15130E</code></li>
+                    <li><strong>Cream (Text):</strong> <code>#F5F0E8</code></li>
+                    <li><strong>Sand:</strong> <code>#E8DED0</code></li>
+                    <li><strong>Warm Gray:</strong> <code>#9C9488</code></li>
+                </ul>
+            </div>
+
+            <div class="step-card">
+                <h3><span class="emoji">📋</span> Cómo agregar</h3>
+                <ul>
+                    <li><strong>1.</strong> Ve a <strong>Marketing → Brand Boards</strong></li>
+                    <li><strong>2.</strong> Click <strong>Global Settings</strong></li>
+                    <li><strong>3.</strong> Click <strong>"+ Add"</strong> → <strong>"Add New"</strong></li>
+                    <li><strong>4.</strong> Nombre: <code>Primary Amber</code> — HEX: <code>#D97706</code></li>
+                    <li><strong>5.</strong> Repite para cada color de la lista</li>
+                    <li><strong>6.</strong> Click <strong>Save</strong></li>
+                </ul>
+                <p style="margin-top: 16px;">Estos colores ahora aparecerán en cada color picker de funnels, websites,
+                    emails, etc. 🔥</p>
+            </div>
+        </div>
+
+        <!-- SECTION 6: COMPANY INFO -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-num">06</span>
+                <h2 class="section-title">Company Info</h2>
+            </div>
+
+            <div class="step-card">
+                <h3><span class="emoji">🏢</span> Actualizar información básica</h3>
+                <div class="path">
+                    <svg viewBox="0 0 24 24">
+                        <path
+                            d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z" />
+                    </svg>
+                    Settings → Company → Basic Details
+                </div>
+                <ul>
+                    <li><strong>Company Name:</strong> Sales Velocity</li>
+                    <li><strong>Website:</strong> salesvelocity.com (o el dominio que escojas)</li>
+                    <li><strong>Business Category:</strong> Marketing Agency</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- SECTION 7: CHECKLIST -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-num">07</span>
+                <h2 class="section-title">Checklist Final</h2>
+            </div>
+
+            <div class="step-card">
+                <ul class="checklist">
+                    <li>
+                        <span class="check">☐</span>
+                        <div><strong>Logo subido</strong> — <code>SV_GHL_header.png</code> en Whitelabel → Logo &
+                            Branding</div>
+                    </li>
+                    <li>
+                        <span class="check">☐</span>
+                        <div><strong>Dark Mode activado</strong> — Whitelabel → Theme Selection → Dark Mode</div>
+                    </li>
+                    <li>
+                        <span class="check">☐</span>
+                        <div><strong>Custom CSS pegado</strong> — Whitelabel → Custom Code → Custom CSS</div>
+                    </li>
+                    <li>
+                        <span class="check">☐</span>
+                        <div><strong>Company Name</strong> actualizado a "Sales Velocity"</div>
+                    </li>
+                    <li>
+                        <span class="check">☐</span>
+                        <div><strong>Brand Boards</strong> — 9 colores agregados en Marketing → Brand Boards</div>
+                    </li>
+                    <li>
+                        <span class="check">☐</span>
+                        <div><strong>Favicons</strong> — <code>SV_GHL_favicon.png</code> en Sites/Client
+                            Portal/Memberships</div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- FILES -->
+        <div class="section">
+            <div class="section-header">
+                <span class="section-num">📦</span>
+                <h2 class="section-title">Archivos listos para subir</h2>
+            </div>
+
+            <div class="step-card">
+                <ul>
+                    <li><strong>SV_GHL_header.png</strong> — Logo horizontal para el header del dashboard (700px ancho)
+                    </li>
+                    <li><strong>SV_GHL_login.png</strong> — Logo apilado para la pantalla de login (700px ancho)</li>
+                    <li><strong>SV_GHL_favicon.png</strong> — Ícono SV. compacto para favicons (128×128px)</li>
+                </ul>
+                <div class="spec">
+                    <strong>📂 Ubicación:</strong> <code>~/Desktop/Clientes/LuchoBranding/brand-assets/logos/</code>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="footer">
+        Sales Velocity © 2026 — GHL Branding Guide v1.0
+    </div>
+
+    <script>
+        function copyCSS() {
+            const cssText = `<style>
+/* ========================================
+   SALES VELOCITY — GHL CUSTOM THEME
+   Pegar en: Settings → Company → Whitelabel → Custom CSS
+   ======================================== */
+
+/* Google Fonts Import */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=DM+Sans:wght@600;700;800;900&display=swap');
+
+/* ── Sidebar Background ── */
+.hl_sidebar {
+  background: #0F0E0B !important;
+  border-right: 1px solid rgba(245, 240, 232, 0.04) !important;
+}
+
+/* ── Top Header ── */
+.hl_topHeader {
+  background: #0A0908 !important;
+  border-bottom: 1px solid rgba(245, 240, 232, 0.04) !important;
+}
+
+/* ── Sidebar Nav Items ── */
+.hl_navItem:hover,
+.hl_navItem.active {
+  background: rgba(217, 119, 6, 0.08) !important;
+  border-left: 3px solid #D97706 !important;
+}
+
+.hl_navItem.active .hl_navItem--label {
+  color: #F59E0B !important;
+}
+
+/* ── Login Page Button ── */
+.login__button {
+  background: linear-gradient(135deg, #D97706, #F59E0B) !important;
+  color: #0A0908 !important;
+  font-family: 'DM Sans', sans-serif !important;
+  font-weight: 700 !important;
+  border-radius: 12px !important;
+  border: none !important;
+  transition: all 0.3s ease !important;
+}
+
+.login__button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 30px rgba(217, 119, 6, 0.25);
+}
+
+/* ── Form Fields (Premium Touch) ── */
+.hl_formField input,
+.hl_formField textarea,
+.hl_formField select {
+  border-radius: 10px !important;
+  border: 1px solid rgba(245, 240, 232, 0.08) !important;
+  font-family: 'Inter', sans-serif !important;
+  transition: border-color 0.3s ease !important;
+}
+
+.hl_formField input:focus,
+.hl_formField textarea:focus {
+  border-color: #D97706 !important;
+  box-shadow: 0 0 0 3px rgba(217, 119, 6, 0.1) !important;
+}
+
+/* ── Primary Action Buttons ── */
+.hl-btn-primary,
+button.btn-primary,
+.btn-primary {
+  background: linear-gradient(135deg, #D97706, #F59E0B) !important;
+  color: #0A0908 !important;
+  font-weight: 700 !important;
+  border-radius: 10px !important;
+  border: none !important;
+}
+
+/* ── Typography Global ── */
+body,
+.hl_layout {
+  font-family: 'Inter', sans-serif !important;
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: 'DM Sans', sans-serif !important;
+}
+
+/* ── Scrollbar (Dark Premium) ── */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #0A0908;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(217, 119, 6, 0.3);
+  border-radius: 10px;
+}
+</style>`;
+
+            navigator.clipboard.writeText(cssText).then(() => {
+                const btn = document.querySelector('.copy-btn');
+                btn.textContent = '✅ ¡Copiado!';
+                btn.classList.add('copied');
+                setTimeout(() => {
+                    btn.textContent = '📋 Copiar CSS Completo';
+                    btn.classList.remove('copied');
+                }, 2000);
+            });
+        }
+    </script>
+
+</body>
+
+</html>
